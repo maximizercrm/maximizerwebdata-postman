@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Authenticate",
+			"name": "Authentication",
 			"item": [
 				{
 					"name": "Authenticate (on-premise)",
@@ -168,6 +168,98 @@
 							]
 						},
 						"description": "Use the `TokenValid` method to check whether or not your API access token is valid before making subsequent requests.\n\nNOTE: You must run the `Authenticate` request before running this one so that the `Token` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "GetSessionInfo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "93b127d3-a765-46ad-9170-610bbbec27a3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a10fa3d1-33f5-464c-a3f3-bdd879cc00bb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"User\":{\r\n      \"Key\":1,\r\n      \"DisplayName\":1\r\n   },\r\n   \"AddressBook\":{\r\n      \"UDBID\":1,\r\n      \"Database\":1,\r\n      \"DisplayValue\":1\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/GetSessionInfo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"GetSessionInfo"
+							]
+						},
+						"description": "Use the `GetSessionInfo` method to retrieve information about the current user and Address Book database based on the token supplied in the request."
+					},
+					"response": []
+				},
+				{
+					"name": "GetSystemInfo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f3a00a69-b335-4c59-becc-20b0ad29e1cf",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a10fa3d1-33f5-464c-a3f3-bdd879cc00bb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/GetSystemInfo",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"GetSystemInfo"
+							]
+						},
+						"description": "Use the `GetSystemInfo` method to get information about the system, including the current API version and the versions of API components.\n\nNOTE: The `GetSystemInfo` method is un-authenticated, so you don't need to supply a token when calling it."
 					},
 					"response": []
 				}
@@ -530,6 +622,83 @@
 							]
 						},
 						"description": "Use the `AbEntryGetFieldOptions` method to retrieve the options for table-valued fields of AbEntry objects. If you include the Key of an existing AbEntry, the options specific to that entry are retrieved.\n\nNOTE: You must run the `AbEntryCreate` request *before* running this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AuditLog",
+			"item": [
+				{
+					"name": "AuditLogRead (Simple)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"AuditLog\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"CreationDate\":{\r\n               \"$RANGE\":[\r\n                  \"2018-01-01\",\r\n                  \"2018-01-31\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"CreationDate\":1,\r\n            \"Creator\":1,\r\n            \"Application\":1,\r\n            \"OPID\":1,\r\n            \"Type\":1,\r\n            \"Source\":1,\r\n            \"Info\":1,\r\n            \"Org\":1,\r\n            \"New\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/AuditLogRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"AuditLogRead"
+							]
+						},
+						"description": "Use the `AuditLogRead` method to search for audit log records in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "AuditLogRead (Detailed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"AuditLog\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"CreationDate\":{\r\n                     \"$RANGE\":[\r\n                        \"2018-01-01T00:00:00-08:00\",\r\n                        \"2018-01-31T23:59:59-08:00\"\r\n                     ]\r\n                  }\r\n               },\r\n               {\r\n                  \"Source\":{\r\n                     \"$EQ\":\"AbEntry\"\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":1,\r\n               \"UID\":1,\r\n               \"DisplayName\":1\r\n            },\r\n            \"Application\":1,\r\n            \"OPID\":1,\r\n            \"Type\":1,\r\n            \"Source\":1,\r\n            \"Info\":1,\r\n            \"Org\":{\r\n               \"AbEntry\":{\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"ID\":1,\r\n                     \"Number\":1,\r\n                     \"EntityType\":1\r\n                  },\r\n                  \"Type\":1,\r\n                  \"CompanyName\":1,\r\n                  \"FirstName\":1,\r\n                  \"MiddleName\":1,\r\n                  \"LastName\":1,\r\n                  \"Phone\":1,\r\n                  \"Email\":1,\r\n                  \"Creator\":1,\r\n                  \"CreationDate\":1,\r\n                  \"ModifiedBy\":1,\r\n                  \"LastModifyDate\":1\r\n               }\r\n            },\r\n            \"New\":{\r\n               \"AbEntry\":{\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"ID\":1,\r\n                     \"Number\":1,\r\n                     \"EntityType\":1\r\n                  },\r\n                  \"Type\":1,\r\n                  \"CompanyName\":1,\r\n                  \"FirstName\":1,\r\n                  \"MiddleName\":1,\r\n                  \"LastName\":1,\r\n                  \"Phone\":1,\r\n                  \"Email\":1,\r\n                  \"Creator\":1,\r\n                  \"CreationDate\":1,\r\n                  \"ModifiedBy\":1,\r\n                  \"LastModifyDate\":1\r\n               }\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/AuditLogRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"AuditLogRead"
+							]
+						},
+						"description": "Use the `AuditLogRead` method to search for audit log records in the database."
 					},
 					"response": []
 				}
