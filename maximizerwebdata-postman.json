@@ -1,14 +1,13 @@
 {
 	"info": {
 		"name": "Maximizer.Web.Data",
-		"_postman_id": "c5f2136d-9f46-4cf5-5a27-6cf4ebefceec",
+		"_postman_id": "533eac46-378a-537b-0f12-31167610d795",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Authenticate",
-			"description": "",
 			"item": [
 				{
 					"name": "Authenticate (on-premise)",
@@ -59,8 +58,7 @@
 								"json",
 								"Authenticate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -119,8 +117,7 @@
 								"json",
 								"Authenticate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -167,8 +164,7 @@
 								"json",
 								"TokenValid"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -176,7 +172,6 @@
 		},
 		{
 			"name": "AbEntry",
-			"description": "",
 			"item": [
 				{
 					"name": "AbEntryRead (Simple)",
@@ -209,8 +204,7 @@
 								"json",
 								"AbEntryRead"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -245,8 +239,7 @@
 								"json",
 								"AbEntryRead"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -294,8 +287,7 @@
 								"json",
 								"AbEntryCreate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -340,8 +332,7 @@
 								"json",
 								"AbEntryUpdate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -389,8 +380,7 @@
 								"json",
 								"AbEntryDelete"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -398,7 +388,6 @@
 		},
 		{
 			"name": "Schema",
-			"description": "",
 			"item": [
 				{
 					"name": "SchemaRead (Simple)",
@@ -441,8 +430,7 @@
 								"json",
 								"SchemaRead"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -487,8 +475,7 @@
 								"json",
 								"SchemaRead"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -533,8 +520,7 @@
 								"json",
 								"SchemaCreate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -579,8 +565,7 @@
 								"json",
 								"SchemaCreate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -625,8 +610,7 @@
 								"json",
 								"SchemaCreate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -674,8 +658,7 @@
 								"json",
 								"SchemaCreate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -720,8 +703,7 @@
 								"json",
 								"SchemaUpdate"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -769,8 +751,7 @@
 								"json",
 								"SchemaDelete"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -792,17 +773,17 @@
 					"// by calling the Authenticate method, and if successful, ",
 					"// saves the token to the environment.",
 					"",
-					"// We don't want to do this when calling the Authenticate or",
-					"// TokenValid methods, since the purpose of those methods is",
-					"// to call the very methods that we're calling below",
-					"if(pm.info.requestName.startsWith(\"Authenticate\") || pm.info.requestName === \"TokenValid\") {",
-					"    return;",
-					"}",
-					"",
 					"// Get the API URL and check to make sure it is non-empty",
 					"const baseURL = pm.environment.get(\"BaseURL\");",
 					"if(!baseURL) {",
 					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// We don't want to do this when calling the Authenticate or",
+					"// TokenValid methods, since the purpose of those methods is",
+					"// to call the very methods that we're calling below",
+					"if(pm.info.requestName.startsWith(\"Authenticate\") || pm.info.requestName === \"TokenValid\") {",
 					"    return;",
 					"}",
 					"",
