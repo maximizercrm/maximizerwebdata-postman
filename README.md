@@ -39,9 +39,11 @@ If you are using Maximizer CRM Live, you will also need to add the following add
 
 Once you have imported the collection and set up your environment, you should be able to run any request in the collection by selecting it in the *Collections* pane, and clicking **Send**.
 
-### A Note About Create, Update, and Delete Requests
+### Create, Update, and Delete Requests
 
 Please note that any of the *Create*, *Update*, and *Delete* method requests will make changes to your Address Book data, so you should only run them against a database that you are comfortable making changes to.
+
+Before running the *Update* or *Delete* request for an entity type, you must first run the corresponding *Create* request. When you create an entity, the test script for the request sets an environment variable containing the Key of the entry that was created. The corresponding *Update* and *Delete* requests then update/delete the same entry by referencing the environment variable, so if the environment variable is not set, the requests will fail.
 
 ## Contributing
 
