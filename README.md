@@ -6,7 +6,7 @@ A Postman collection containing example requests for the [Maximizer.Web.Data API
 
 ### Get Postman
 
-If you aren't already using Postman, you can [download it here](https://www.getpostman.com/). 
+If you aren't already using Postman, [you can download it here](https://www.getpostman.com/postman). 
 
 ### Import the Collection
 
