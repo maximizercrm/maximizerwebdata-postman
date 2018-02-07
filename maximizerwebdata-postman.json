@@ -323,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"AbEntry\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"CompanyName\":{\r\n                     \"$LIKE\":\"%\"\r\n                  }\r\n               },\r\n               {\r\n                  \"Type\":{\r\n                     \"$EQ\":\"Contact\"\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Type\":1,\r\n            \"CompanyName\":1,\r\n            \"MrMs\":1,\r\n            \"FirstName\":1,\r\n            \"MiddleName\":1,\r\n            \"LastName\":1,\r\n            \"FullName\":1,\r\n            \"Position\":1,\r\n            \"Salutation\":1,\r\n            \"Department\":1,\r\n            \"Division\":1,\r\n            \"Phone\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone1\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone2\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone3\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone4\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Email\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email1\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email2\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email3\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"ParentKey\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Address\":{\r\n               \"Key\":1,\r\n               \"Description\":1,\r\n               \"AddressLine1\":1,\r\n               \"AddressLine2\":1,\r\n               \"City\":1,\r\n               \"Country\":1,\r\n               \"StateProvince\":1,\r\n               \"ZipCode\":1,\r\n               \"Default\":1,\r\n               \"ParentKey\":1\r\n            },\r\n            \"AccountManager\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"UID\":1,\r\n                  \"DisplayName\":1\r\n               }\r\n            ],\r\n            \"Territory\":{\r\n               \"Key\":1,\r\n               \"Name\":1,\r\n               \"AccountManager\":1,\r\n               \"CreationDate\":1,\r\n               \"Creator\":1,\r\n               \"LastModifyDate\":1,\r\n               \"ModifiedBy\":1\r\n            },\r\n            \"TerritoryStatus\":1,\r\n            \"Lead\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SecAccess\":{\r\n               \"Write\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ],\r\n               \"Read\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ]\r\n            },\r\n            \"SecStatus\":{\r\n               \"CanRead\":1,\r\n               \"CanUpdate\":1,\r\n               \"CanDelete\":1\r\n            },\r\n            \"PartnerKey\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Partner\":{\r\n               \"Key\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"ModifiedBy\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"LastModifyDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"WebSite\":1,\r\n            \"Category\":1,\r\n            \"DoNotSolicitBy\":1,\r\n            \"LastContactDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Udf/$TYPEID(58851)\":1,\r\n            \"Udf/VWRmRGVmaW5pdGlvbgk2MDAzMAkw\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Udf/$NAME(Do not solicit by)\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"AbEntry\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"CompanyName\":{\r\n                     \"$LIKE\":\"%\"\r\n                  }\r\n               },\r\n               {\r\n                  \"Type\":{\r\n                     \"$EQ\":\"Contact\"\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Type\":1,\r\n            \"CompanyName\":1,\r\n            \"MrMs\":1,\r\n            \"FirstName\":1,\r\n            \"MiddleName\":1,\r\n            \"LastName\":1,\r\n            \"FullName\":1,\r\n            \"Position\":1,\r\n            \"Salutation\":1,\r\n            \"Department\":1,\r\n            \"Division\":1,\r\n            \"Phone\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone1\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone2\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone3\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Phone4\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Number\":1,\r\n               \"Extension\":1\r\n            },\r\n            \"Email\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email1\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email2\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"Email3\":{\r\n               \"Default\":1,\r\n               \"Description\":1,\r\n               \"Address\":1\r\n            },\r\n            \"ParentKey\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Address\":{\r\n               \"Key\":1,\r\n               \"Description\":1,\r\n               \"AddressLine1\":1,\r\n               \"AddressLine2\":1,\r\n               \"City\":1,\r\n               \"Country\":1,\r\n               \"StateProvince\":1,\r\n               \"ZipCode\":1,\r\n               \"Default\":1,\r\n               \"ParentKey\":1\r\n            },\r\n            \"AccountManager\":[\r\n               {\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"Uid\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            ],\r\n            \"Territory\":{\r\n               \"Key\":1,\r\n               \"Name\":1,\r\n               \"AccountManager\":1,\r\n               \"CreationDate\":1,\r\n               \"Creator\":1,\r\n               \"LastModifyDate\":1,\r\n               \"ModifiedBy\":1\r\n            },\r\n            \"TerritoryStatus\":1,\r\n            \"Lead\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SecAccess\":{\r\n               \"Write\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ],\r\n               \"Read\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ]\r\n            },\r\n            \"SecStatus\":{\r\n               \"CanRead\":1,\r\n               \"CanUpdate\":1,\r\n               \"CanDelete\":1\r\n            },\r\n            \"PartnerKey\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Partner\":{\r\n               \"Key\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"ModifiedBy\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"LastModifyDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"WebSite\":1,\r\n            \"Category\":1,\r\n            \"DoNotSolicitBy\":1,\r\n            \"LastContactDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Udf/$TYPEID(58851)\":1,\r\n            \"Udf/VWRmRGVmaW5pdGlvbgk2MDAzMAkw\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Udf/$NAME(Do not solicit by)\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
 						},
 						"url": {
 							"raw": "{{BaseURL}}/Data.svc/json/AbEntryRead",
@@ -346,7 +346,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "912206c1-6ead-4fd0-a82e-130f46c59dcb",
+								"id": "885320ee-22b9-4192-b8ef-3dc5a5bf71d8",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = pm.response.json();",
@@ -395,13 +395,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "912206c1-6ead-4fd0-a82e-130f46c59dcb",
+								"id": "dbfde340-c9e3-4b7d-8b5d-a3301538ba65",
 								"type": "text/javascript",
 								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData && jsonData.AbEntry && jsonData.AbEntry.Data) {   ",
-									"    pm.environment.set(\"AbEntryKey\", jsonData.AbEntry.Data.Key);",
-									"}"
+									""
 								]
 							}
 						},
@@ -622,6 +619,319 @@
 							]
 						},
 						"description": "Use the `AbEntryGetFieldOptions` method to retrieve the options for table-valued fields of AbEntry objects. If you include the Key of an existing AbEntry, the options specific to that entry are retrieved.\n\nNOTE: You must run the `AbEntryCreate` request *before* running this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Opportunity",
+			"item": [
+				{
+					"name": "OpportunityRead (Simple)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Objective\":{\r\n               \"$LIKE\":\"%\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"AbEntry\":1,\r\n            \"AbEntryKey\":1,\r\n            \"Contact\":1,\r\n            \"ContactKey\":1,\r\n            \"Objective\":1,\r\n            \"Description\":1,\r\n            \"Status\":1,\r\n            \"Cost\":1,\r\n            \"ActualRevenue\":1,\r\n            \"ForecastRevenue\":1,\r\n            \"StartDate\":1,\r\n            \"CloseDate\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"ModifiedBy\":1,\r\n            \"LastModifyDate\":1,\r\n            \"Leader\":1,\r\n            \"SalesTeam\":1,\r\n            \"ReadOnly\":1,\r\n            \"SalesProcessKey\":1,\r\n            \"SalesProcess\":1,\r\n            \"CurrentSalesStageKey\":1,\r\n            \"CurrentSalesStage\":1,\r\n            \"CurrentSalesStageAge\":1,\r\n            \"Category\":1,\r\n            \"Product\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityRead"
+							]
+						},
+						"description": "Use the `OpportunityRead` method to search for opportunities in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityRead (Detailed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$OR\":[\r\n               {\r\n                  \"CreationDate\":{\r\n                     \"$RANGE\":[\r\n                        \"2018-01-01\",\r\n                        \"2018-01-31\"\r\n                     ]\r\n                  }\r\n               },\r\n               {\r\n                  \"Status\":{\r\n                     \"$IN\":[\r\n                        1,\r\n                        2\r\n                     ]\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"AbEntry\":{\r\n               \"Key\":1,\r\n               \"CompanyName\":1,\r\n               \"Email\":1,\r\n               \"Phone\":1\r\n            },\r\n            \"AbEntryKey\":1,\r\n            \"Contact\":{\r\n               \"Key\":1,\r\n               \"FirstName\":1,\r\n               \"LastName\":1\r\n            },\r\n            \"ContactKey\":1,\r\n            \"Objective\":1,\r\n            \"Description\":1,\r\n            \"Status\":1,\r\n            \"Cost\":1,\r\n            \"ActualRevenue\":1,\r\n            \"ForecastRevenue\":1,\r\n            \"StartDate\":1,\r\n            \"CloseDate\":1,\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"UID\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":1,\r\n            \"ModifiedBy\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"UID\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"LastModifyDate\":1,\r\n            \"Leader\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"UID\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SalesTeam\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"ID\":1\r\n               },\r\n               \"DisplayName\":1\r\n            },\r\n            \"ReadOnly\":1,\r\n            \"SalesProcessKey\":1,\r\n            \"SalesProcess\":1,\r\n            \"CurrentSalesStageKey\":1,\r\n            \"CurrentSalesStage\":1,\r\n            \"CurrentSalesStageAge\":1,\r\n            \"Category\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Product\":[\r\n               {\r\n                  \"Key\":1,\r\n                  \"Value\":1\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityRead"
+							]
+						},
+						"description": "Use the `OpportunityRead` method to search for opportunities in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9653ab67-d1f8-4bea-8125-1b38072ec3b9",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData && jsonData.Opportunity && jsonData.Opportunity.Data) {   ",
+									"    pm.environment.set(\"OpportunityKey\", jsonData.Opportunity.Data.Key);",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"AbEntryKey\":\"{{AbEntryKey}}\",\r\n         \"Objective\":\"Example\",\r\n         \"Description\":\"This is an example opportunity.\\nIt was created using Maximizer.Web.Data in Postman!\",\r\n         \"Status\":2,\r\n         \"Cost\":1234.56,\r\n         \"ForecastRevenue\":2345.67,\r\n         \"StartDate\":\"2018-01-01\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityCreate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityCreate"
+							]
+						},
+						"description": "Use the `OpportunityCreate` method to create a new opportunity in the database.\n\nNOTE: You must run the `AbEntryCreate (Company)` request before running this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{OpportunityKey}}\",\r\n         \"Objective\":\"Postman Example\",\r\n         \"Status\":3,\r\n         \"ActualRevenue\":3456.78,\r\n         \"CloseDate\":\"2018-02-01\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityUpdate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityUpdate"
+							]
+						},
+						"description": "Use the `OpportunityUpdate` method to update an existing opportunity in the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityDelete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bff0213b-d50c-4bc0-89e1-a399412b5a9b",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData.Code === 0) {",
+									"    pm.environment.unset(\"OpportunityKey\");",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{OpportunityKey}}\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityDelete",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityDelete"
+							]
+						},
+						"description": "Use the `OpportunityDelete` method to delete an opportunity from the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityGetFieldOptions (Generic)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Options\":{\r\n         \"Objective\":1,\r\n         \"Status\":1,\r\n         \"Creator\":1,\r\n         \"ModifiedBy\":1,\r\n         \"Leader\":1,\r\n         \"SalesTeam\":1,\r\n         \"Category\":1,\r\n         \"Product\":1\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityGetFieldOptions",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityGetFieldOptions"
+							]
+						},
+						"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects."
+					},
+					"response": []
+				},
+				{
+					"name": "OpportunityGetFieldOptions (Specific Entry)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{OpportunityKey}}\"\r\n      },\r\n      \"Options\":{\r\n         \"Objective\":1,\r\n         \"Status\":[\r\n            {\r\n               \"Key\":1,\r\n               \"Value\":1\r\n            }\r\n         ],\r\n         \"Creator\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"UID\":1\r\n            },\r\n            \"DisplayValue\":1\r\n         },\r\n         \"ModifiedBy\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"UID\":1\r\n            },\r\n            \"DisplayValue\":1\r\n         },\r\n         \"Leader\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"UID\":1\r\n            },\r\n            \"DisplayValue\":1\r\n         },\r\n         \"SalesTeam\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1\r\n            },\r\n            \"DisplayName\":1\r\n         },\r\n         \"Category\":[\r\n            {\r\n               \"Key\":1,\r\n               \"Value\":1\r\n            }\r\n         ],\r\n         \"Product\":[\r\n            {\r\n               \"Key\":1,\r\n               \"Value\":1\r\n            }\r\n         ]\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/OpportunityGetFieldOptions",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"OpportunityGetFieldOptions"
+							]
+						},
+						"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects. If you include the Key of an existing Opportunity, the options specific to that entry are retrieved.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
 					},
 					"response": []
 				}
