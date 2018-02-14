@@ -11,9 +11,10 @@ If you aren't already using Postman, [you can download it here](https://www.getp
 ### Import the Collection
 
 To [import the collection into Postman](https://www.getpostman.com/docs/postman/collections/data_formats):
-1. Clone the repository to your local machine `git clone git@github.com:jasontdc/maximizerwebdata-postman` or download the `maximizerwebdata-postman.json` file from the GitHub UI.
-2. In the toolbar, click **Import**.
-3. Drag-and-drop the collection file into the import dialog.
+1. In the Postman toolbar, click **Import**.
+2. Select the **Import From Link** option.
+3. Copy-and-paste the following address into the URL field and click **Import**:
+`https://raw.githubusercontent.com/jasontdc/maximizerwebdata-postman/master/maximizerwebdata-postman.json`
 
 ### Create an Environment
 
