@@ -14,7 +14,7 @@ To [import the collection into Postman](https://www.getpostman.com/docs/postman/
 1. In the Postman toolbar, click **Import**.
 2. Select the **Import From Link** option.
 3. Copy-and-paste the following address into the URL field and click **Import**:
-`https://raw.githubusercontent.com/jasontdc/maximizerwebdata-postman/master/maximizerwebdata-postman.json`
+`https://raw.githubusercontent.com/MaximizerSoftwareInc/maximizerwebdata-postman/master/maximizerwebdata-postman.json`
 
 ### Create an Environment
 
