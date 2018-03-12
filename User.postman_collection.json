@@ -1,0 +1,240 @@
+{
+	"info": {
+		"name": "User",
+		"_postman_id": "e9f39af7-e35b-4d3c-b378-dd6ee3267abc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"description": null,
+			"item": [
+				{
+					"name": "Read Users (Simple)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Token\":\"{{Token}}\",\r\n    \"User\":{\r\n        \"Criteria\":{\r\n            \"SearchQuery\":{\r\n                \"FirstName\":{\r\n                    \"$LIKE\":\"%\"\r\n                }\r\n            }\r\n        },\r\n        \"Scope\":{\r\n            \"Fields\":{\r\n                \"Key\":1,\r\n                \"Password\":1,\r\n                \"AccessType\":1,\r\n                \"FirstName\":1,\r\n                \"LastName\":1,\r\n                \"DisplayName\":1,\r\n                \"Disabled\":1\r\n            }\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/UserRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"UserRead"
+							]
+						},
+						"description": "Use the `UserRead` method to search for users in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Read Users (Detailed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Token\":\"{{Token}}\",\r\n    \"User\":{\r\n        \"Criteria\":{\r\n            \"SearchQuery\":{\r\n                \"FirstName\":{\r\n                    \"$LIKE\":\"%\"\r\n                }\r\n            }\r\n        },\r\n        \"Scope\":{\r\n            \"Fields\":{\r\n                \"Key\":1,\r\n                \"Password\":1,\r\n                \"AccessType\":1,\r\n                \"FirstName\":1,\r\n                \"LastName\":1,\r\n                \"DisplayName\":1,\r\n                \"Disabled\":1,\r\n                \"Roles\":1,\r\n                \"Permissions\":{\r\n                    \"AccountSetup\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"UserDefinedFieldSetup\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"AddressBook\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"AltAddress\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"CustomerService\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Opportunity\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"UserDefinedFields\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Notes\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Documents\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"KnowledgeBase\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Campaign\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"ActionPlanLibrary\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"CompanyLibrary\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Quota\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"Dashboard\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    },\r\n                    \"ProductSetup\":{\r\n                        \"Create\":1,\r\n                        \"Read\":1,\r\n                        \"Update\":1,\r\n                        \"Delete\":1\r\n                    }\r\n                },\r\n                \"Privileges\":{\r\n                    \"GlobalEdit\":1,\r\n                    \"PublicEntries\":1,\r\n                    \"PrivateEntries\":1,\r\n                    \"Import\":1,\r\n                    \"Export\":1,\r\n                    \"SyncContacts\":1,\r\n                    \"ModifySystemTables\":1,\r\n                    \"ModifyNoteProperties\":1,\r\n                    \"ModifyEmailTemplates\":1,\r\n                    \"ModifyKeyFields\":1,\r\n                    \"BypassUserDetailPermissions\":1,\r\n                    \"BypassEntryPermissions\":1,\r\n                    \"BypassNotePermissions\":1,\r\n                    \"ManageCurrencies\":1,\r\n                    \"AccessAuditLog\":1\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/UserRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"UserRead"
+							]
+						},
+						"description": "Use the `UserRead` method to search for users in the database."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "96afba58-09a1-4391-ad6d-3a09e7926a16",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// If we are calling the Authenticate, TokenValid, or GetSystemInfo",
+					"// methods, we don't need a valid token and can skip the rest",
+					"let path = pm.request.url.getPath().toLowerCase();",
+					"if(path.endsWith(\"authenticate\") ",
+					"   || path.endsWith(\"tokenvalid\")",
+					"   || path.endsWith(\"getsysteminfo\")) {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7afdc073-0ffe-497e-8ce8-a61f52a4acae",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
