@@ -1,25 +1,25 @@
 # Maximizer.Web.Data Postman Collection
 
-A Postman collection containing example requests for the [Maximizer.Web.Data API](https://developer.maximizer.com/doc/maximizerwebdata).
+[Postman](https://www.getpostman.com/postman) is an API development application that allows you to quickly and easily create and execute API requests and examine the responses for web service APIs like Maximizer.Web.Data.
+
+This repository contains a series of Postman collections that provide example requests for the [Maximizer.Web.Data API](https://developer.maximizer.com/doc/maximizerwebdata).
+
+If you aren't already using Postman, [you can download it here](https://www.getpostman.com/postman). Before getting started with the Maximizer.Web.Data collection, take a moment to browse the (introductory Postman documentation](https://www.getpostman.com/docs/v6/), especially the instructions for [how to send your first request](https://www.getpostman.com/docs/v6/postman/launching_postman/sending_the_first_request) and [how to use collections](https://www.getpostman.com/docs/v6/postman/collections/intro_to_collections).
 
 ## Getting Started
 
-### Get Postman
-
-If you aren't already using Postman, [you can download it here](https://www.getpostman.com/postman). 
-
 ### Get the Source
 
-Clone the repository.
+Once you have Postman set up, clone the repository to your local machine:
 ```
 git clone git@github.com:MaximizerSoftwareInc/maximizerwebdata-postman.git
 ```
 
-Or download it [here](https://github.com/MaximizerSoftwareInc/maximizerwebdata-postman/archive/master.zip).
+Or, if you prefer, you can download a .zip archive of the source [here](https://github.com/MaximizerSoftwareInc/maximizerwebdata-postman/archive/master.zip).
 
 ### Import a Collection
 
-The collections can be found in the `Collection` directory, and are organized by entity type or by related functionality.
+The collections can be found in the `Collection` directory, and are organized by entity type or by related functionality. For example, the example requests in the `AbEntry` collection will show you how to work with AbEntry objects.
 
 To [import a collection into Postman](https://www.getpostman.com/docs/postman/collections/data_formats):
 1. In the Postman toolbar, click **Import**.
