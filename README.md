@@ -5,7 +5,7 @@ It provides a great way to experiment with and learn about the Maximizer.Web.Dat
 
 To help you get started with the Maximizer.Web.Data API, this repository contains a series of Postman collections that provide example requests for the [Maximizer.Web.Data API](https://developer.maximizer.com/doc/maximizerwebdata).
 
-If you aren't already using Postman, [you can download it here](https://www.getpostman.com/postman). Before getting started with the Maximizer.Web.Data collection, take a moment to browse the (introductory Postman documentation](https://www.getpostman.com/docs/v6/), especially the instructions for [how to send your first request](https://www.getpostman.com/docs/v6/postman/launching_postman/sending_the_first_request) and [how to use collections](https://www.getpostman.com/docs/v6/postman/collections/intro_to_collections).
+If you aren't already using Postman, [you can download it here](https://www.getpostman.com/postman). Before getting started with the Maximizer.Web.Data collection, take a moment to browse the [introductory Postman documentation](https://www.getpostman.com/docs/v6/), especially the instructions for [how to send your first request](https://www.getpostman.com/docs/v6/postman/launching_postman/sending_the_first_request) and [how to use collections](https://www.getpostman.com/docs/v6/postman/collections/intro_to_collections).
 
 ## Getting Started
 
