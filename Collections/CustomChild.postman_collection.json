@@ -1,0 +1,538 @@
+{
+	"info": {
+		"_postman_id": "64112cfb-7957-404d-b84e-15b542b9f7f5",
+		"name": "CustomChild",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create - CustomChild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29fa4417-6e81-43e3-890f-a071bfe31195",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.CustomChild && jsonData.CustomChild.Data) {   ",
+							"    pm.environment.set(\"CustomChildKey\", jsonData.CustomChild.Data.Key);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"ParentKey\":\"{{CustomKey}}\",\r\n         \"ApplicationId\":\"MyAppId\",\r\n         \"Name\":\"Creating CustomChild Object\",\r\n         \"Description\":\"Test Creating CustomChild\",\r\n         \"Text1\":\"some text\",\r\n         \"Number1\":1,\r\n         \"Numeric1\":2.3,\r\n         \"DateTime1\":\"2018-03-13T13:33:33\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a CustomChild object in the database.\n\nNOTE: you must run the `Create - Custom` request *before* this one so that the `CustomKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Create - CustomChild (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7783fefb-7483-4576-adc8-10e3cc4cd137",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.CustomChild && jsonData.CustomChild.Data) {   ",
+							"    pm.environment.set(\"CustomChildKey\", jsonData.CustomChild.Data.Key);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"ParentKey\":\"{{CustomKey}}\",\r\n         \"ApplicationId\":\"MyAppId\",\r\n         \"Name\":\"Test Creating Custom\",\r\n         \"Description\":\"Testing Creating Custom Object\",\r\n         \"Text1\":\"Testing\",\r\n         \"Text2\":\"Test2\",\r\n         \"Text3\":\"Test3\",\r\n         \"Text4\":\"Test4\",\r\n         \"Number1\":1,\r\n         \"Number2\":2,\r\n         \"Number3\":3,\r\n         \"Number4\":4,\r\n         \"Number5\":5,\r\n         \"Number6\":6,\r\n         \"Number7\":7,\r\n         \"Number8\":8,\r\n         \"Numeric1\":1,\r\n         \"Numeric2\":2,\r\n         \"Numeric3\":3,\r\n         \"Numeric4\":4,\r\n         \"DateTime1\":\"2018-05-30\",\r\n         \"DateTime2\":\"2018-05-30\",\r\n         \"DateTime3\":\"2018-05-30\",\r\n         \"DateTime4\":\"2018-05-30\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a CustomChild object in the database.\n\nNOTE: you must run the `Create - Custom` request *before* this one so that the `CustomKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - CustomChild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ApplicationId\":{\r\n               \"$LIKE\":\"%\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Parent\":1,\r\n            \"ApplicationId\":1,\r\n            \"Name\":1,\r\n            \"Description\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"ModifiedBy\":1,\r\n            \"Text1\":1,\r\n            \"Number1\":1,\r\n            \"Numeric1\":1,\r\n            \"DateTime1\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of CustomChild objects in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - CustomChild (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"DateTime1\":{\r\n               \"$RANGE\":[\r\n                  \"2018-01-01\",\r\n                  \"2018-12-31\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Parent\":{\r\n               \"Key\":1\r\n            },\r\n            \"ParentKey\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"ApplicationId\":1,\r\n            \"Name\":1,\r\n            \"Description\":1,\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"ModifiedBy\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SecAccess\":{\r\n               \"Write\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ],\r\n               \"Read\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ]\r\n            },\r\n            \"SecStatus\":{\r\n               \"CanRead\":1,\r\n               \"CanUpdate\":1,\r\n               \"CanDelete\":1\r\n            },\r\n            \"Text1\":1,\r\n            \"Text2\":1,\r\n            \"Text3\":1,\r\n            \"Number1\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number2\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number3\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number4\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number5\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number6\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number7\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Number8\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Numeric1\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Numeric2\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Numeric3\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Numeric4\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"DateTime1\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"DateTime2\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"DateTime3\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"DateTime4\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of CustomChild objects in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - CustomChild (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"DateTime1\":{\r\n               \"$RANGE\":[\r\n                  \"2018-01-01\",\r\n                  \"2018-12-31\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Parent\":1,\r\n            \"ApplicationId\":1,\r\n            \"Name\":1,\r\n            \"Description\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"ModifiedBy\":1,\r\n            \"LastModifyDate\":1,\r\n            \"SecAccess\":1,\r\n            \"SecStatus\":1,\r\n            \"Text1\":1,\r\n            \"Text2\":1,\r\n            \"Text3\":1,\r\n            \"Text4\":1,\r\n            \"Number1\":1,\r\n            \"Number2\":1,\r\n            \"Number3\":1,\r\n            \"Number4\":1,\r\n            \"Number5\":1,\r\n            \"Number6\":1,\r\n            \"Number7\":1,\r\n            \"Number8\":1,\r\n            \"Numeric1\":1,\r\n            \"Numeric2\":1,\r\n            \"Numeric3\":1,\r\n            \"Numeric4\":1,\r\n            \"DateTime1\":1,\r\n            \"DateTime2\":1,\r\n            \"DateTime3\":1,\r\n            \"DateTime4\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of CustomChild objects in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - CustomChild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{CustomChildKey}}\",\r\n         \"Name\":\"Update Test Custom Child Key\",\r\n         \"Description\":\"Testing\",\r\n         \"Text1\":\"Some Text To Update\",\r\n         \"Number1\":1,\r\n         \"Numeric1\":2.3,\r\n         \"DateTime1\":\"2018-03-14T13:33:33\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to update a CustomChild object in the database.\n\nNOTE: you must run the `Create - CustomChild` request *before* this one so that the `CustomChildKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - CustomChild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e943937-b263-4944-87a6-3189e8903d3a",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"CustomChildKey\");",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{CustomChildKey}}\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete a CustomChild object from the database.\n\nNOTE: you must run the `Create - CustomChild` request *before* this one so that the `CustomChildKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata - CustomChild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"CustomChild\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - CustomChild (Generic)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Options\":{\r\n         \"Creator\":1,\r\n         \"SecAccess\":{\r\n            \"Write\":1,\r\n            \"Read\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/CustomChildGetFieldOptions",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"CustomChildGetFieldOptions"
+					]
+				},
+				"description": "Use the `CustomChildGetFieldOptions` method to retrieve the options for table-valued fields in CustomChild objects."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - CustomChild (Specifc Entry)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"CustomChild\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{CustomChildKey}}\"\r\n      },\r\n      \"Options\":{\r\n         \"Creator\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"Uid\":1\r\n            },\r\n            \"DisplayValue\":1\r\n         },\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               {\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"Uid\":1\r\n                  }\r\n               }\r\n            ],\r\n            \"Read\":[\r\n               {\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"Uid\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/CustomChildGetFieldOptions",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"CustomChildGetFieldOptions"
+					]
+				},
+				"description": "Use the `CustomChildGetFieldOptions` method to retrieve the options for table-valued fields in CustomChild objects.\n\nNOTE: you must run the `Create - CustomChild` request *before* this one so that the `CustomChildKey` environment variable is set."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "26ae2638-3d92-484a-8217-02a38db4fab3",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// We don't want to do this when calling the Authenticate or",
+					"// TokenValid methods, since the purpose of those methods is",
+					"// to call the very methods that we're calling below",
+					"if(pm.info.requestName.startsWith(\"Authenticate\") || pm.info.requestName === \"TokenValid\") {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2823d2cc-4266-475e-9b7f-18f8163d8358",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "a015f22d-5f62-4561-b32a-a604a6d118e4",
+		"name": "Address",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Address",
+			"description": "",
+			"item": [
+				{
+					"name": "Create - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3afe2582-3b51-4b55-826f-7cc19f2eee24",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData && jsonData.Address && jsonData.Address.Data) {   ",
+									"    pm.environment.set(\"AddressKey\", jsonData.Address.Data.Key);",
+									"   ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"ParentKey\":\"{{AbEntryKey}}\",\r\n         \"Description\":\"Address created from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\",\r\n         \"Default\":true\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Create",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Create"
+							]
+						},
+						"description": "Use the `Create` method to create an Address object in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Read - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Read",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Read"
+							]
+						},
+						"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Read - Address (Detailed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1,\r\n            \"Default\":1,\r\n            \"ParentKey\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Read",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Read"
+							]
+						},
+						"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "77b01c0a-2d43-42e8-bbb0-f0887f9d02e7",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\",\r\n         \"Description\":\"Address Updated from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Update",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Update"
+							]
+						},
+						"description": "Use the `Update` method to update an Address object in the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "98409cba-4da4-4488-9d90-70a06d5139f9",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData.Code === 0) {",
+									"    pm.environment.unset(\"AddressKey\");",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Delete",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Delete"
+							]
+						},
+						"description": "Use the `Delete` method to delete an Address object from the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Metadata - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"Address\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"SchemaRead"
+							]
+						},
+						"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Options - Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Options\":{\r\n         \"City\":1,\r\n         \"Country\":1\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/AddressGetFieldOptions",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"AddressGetFieldOptions"
+							]
+						},
+						"description": "Use the `AddressGetFieldOptions` method to retrieve a list of the table-value field options for Address objects."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "19b79665-764a-4d96-ac56-5f47c492a620",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// We don't want to do this when calling the Authenticate or",
+					"// TokenValid methods, since the purpose of those methods is",
+					"// to call the very methods that we're calling below",
+					"if(pm.info.requestName.startsWith(\"Authenticate\") || pm.info.requestName === \"TokenValid\") {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d48bf489-896b-4240-920f-e0e0385179e8",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}

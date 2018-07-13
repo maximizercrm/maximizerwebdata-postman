@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "da35974a-cb99-4e33-a251-a3376e7754a4",
+		"name": "Folder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Folder",
+			"description": null,
+			"item": [
+				{
+					"name": "Create - Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6cef0c0-0246-44e8-a16b-cff175ddd1f4",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData && jsonData.SchemaFolder && jsonData.SchemaFolder.Data) {   ",
+									"    pm.environment.set(\"SchemaFolderKey\", jsonData.SchemaFolder.Data.Key);",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Name\":\"Folder Name\",\r\n         \"ParentKey\":\"VWRmU2V0dXAJMA==\",\r\n         \"Inactive\":true\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Create",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Create"
+							]
+						},
+						"description": "Use the `Create` method to create a new folder for user-defined fields."
+					},
+					"response": []
+				},
+				{
+					"name": "Read - Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"AbEntry\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"AppliesTo\":1,\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Read",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Read"
+							]
+						},
+						"description": "Use the `Read` method to search for folders in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Read - Folder (Detailed)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{SchemaFolderKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"AppliesTo\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Read",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Read"
+							]
+						},
+						"description": "Use the `Read` method to search for folders in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\",\r\n      \"Name\":\"Folder Name Update\",\r\n\r\n      \"Inactive\":false\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Update",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Update"
+							]
+						},
+						"description": "Use the `Update` method to update an existing folder in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e062755-1e6f-4478-99d9-1971bcee4590",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if(jsonData.Code === 0) {",
+									"    pm.environment.unset(\"SchemaFolderKey\");",
+									"}"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Delete",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Delete"
+							]
+						},
+						"description": "Use the `Delete` method to delete a folder from the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+					},
+					"response": []
+				},
+				{
+					"name": "Metadata – Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"1.1\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$TREE\":\"/Folder\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"SchemaRead"
+							]
+						},
+						"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Options - Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FieldOption\":{\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"SchemaFolder\":{\r\n               \"AppliesTo\":[\r\n                  {\r\n                     \"Key\":1,\r\n                     \"Value\":1\r\n                  }\r\n               ],\r\n               \"Creator\":{\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"UID\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            }\r\n         }\r\n      },\r\n      \"Data\":{\r\n         \"SchemaFolder\":{\r\n            \"AppliesTo\":\"AbEntry\"\r\n         }\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/Data.svc/json/Read",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"Data.svc",
+								"json",
+								"Read"
+							]
+						},
+						"description": "Use the `Read` method to query FieldOption entities to retrieve the options for table-valued fields of other objects."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "96afba58-09a1-4391-ad6d-3a09e7926a16",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// If we are calling the Authenticate, TokenValid, or GetSystemInfo",
+					"// methods, we don't need a valid token and can skip the rest",
+					"let path = pm.request.url.getPath().toLowerCase();",
+					"if(path.endsWith(\"authenticate\") ",
+					"   || path.endsWith(\"tokenvalid\")",
+					"   || path.endsWith(\"getsysteminfo\")) {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7afdc073-0ffe-497e-8ce8-a61f52a4acae",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
