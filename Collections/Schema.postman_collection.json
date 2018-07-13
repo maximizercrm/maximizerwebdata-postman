@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "aa3e0c03-5d80-4e8f-bf2a-6c0cb6c2c38b",
+		"name": "Schema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create - Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77a3c5b9-2487-4780-aba4-3b0bd01a1edf",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Schema && jsonData.Schema.Data) {   ",
+							"    pm.environment.set(\"SchemaKey\", jsonData.Schema.Data.Key);",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"Type\":\"EnumField<StringItem>\",\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Name\":\"Sync With HubSpot\",\r\n         \"Attributes\":{\r\n            \"MultiSelect\":true\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a new user-defined field in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Create - Schema (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b2eae965-2d6c-40dd-89d8-ff3b517b9eca",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Schema && jsonData.Schema.Data) {   ",
+							"    pm.environment.set(\"SchemaKey\", jsonData.Schema.Data.Key);",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Folder\":\"{{FolderKey}}\",\r\n         \"RequestedBy\":\"VXNlcglNQVNURVI=\",\r\n         \"Inactive\":false,\r\n         \"Type\":\"EnumField<StringItem>\",\r\n         \"Name\":\"Sync With HubSpot\",\r\n         \"Nullable\":true,\r\n         \"ReadOnly\":false,\r\n         \"Attributes\":{\r\n            \"MultiSelect\":true,\r\n            \"YesNo\":false\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a new user-defined field in the database.\n\nNOTE: You must run both the `Create - Schema` and `Create - Folder` request *before* running this one so that the `SchemaKey` and `FolderKey` environment variables are set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Schema (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"0.4\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"AppliesTo\":{\r\n                     \"$IN\":[\r\n                        \"AbEntry\"\r\n                     ]\r\n                  }\r\n               },\r\n               {\r\n                  \"Key\":{\r\n                     \"$EQ\":\"{{SchemaKey}}\"\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Code\":1,\r\n            \"AppliesTo\":1,\r\n            \"Folder\":1,\r\n            \"SecAccess\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"RequestedBy\":1,\r\n            \"Inactive\":1,\r\n            \"Mandatory\":1,\r\n            \"Formula\":1,\r\n            \"Alias\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Nullable\":1,\r\n            \"ReadOnly\":1,\r\n            \"Attributes\":1,\r\n            \"Version\":1,\r\n            \"SupportedVersions\":1,\r\n            \"Queryable\":1,\r\n            \"Sortable\":1,\r\n            \"HasOption\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Schema (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"0.4\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"AppliesTo\":{\r\n                     \"$IN\":[\r\n                        \"AbEntry\"\r\n                     ]\r\n                  }\r\n               },\r\n               {\r\n                  \"Key\":{\r\n                     \"$EQ\":\"{{SchemaKey}}\"\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Code\":1,\r\n            \"AppliesTo\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Folder\":{\r\n               \"Key\":1,\r\n               \"Name\":1,\r\n               \"Path\":1,\r\n               \"AppliesTo\":[\r\n                  1\r\n               ]\r\n            },\r\n            \"SecAccess\":{\r\n               \"Write\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ],\r\n               \"Read\":[\r\n                  {\r\n                     \"Key\":{\r\n                        \"Value\":1,\r\n                        \"Uid\":1\r\n                     },\r\n                     \"DisplayValue\":1\r\n                  }\r\n               ]\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"RequestedBy\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Inactive\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Mandatory\":{\r\n               \"Rule\":1\r\n            },\r\n            \"Formula\":{\r\n               \"Rule\":1\r\n            },\r\n            \"Alias\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Nullable\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"ReadOnly\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Attributes\":1,\r\n            \"Version\":{\r\n               \"DisplayValue\":1,\r\n               \"Major\":1,\r\n               \"Minor\":1,\r\n               \"Beta\":1\r\n            },\r\n            \"SupportedVersions\":[\r\n               {\r\n                  \"DisplayValue\":1,\r\n                  \"Major\":1,\r\n                  \"Minor\":1,\r\n                  \"Beta\":1\r\n               }\r\n            ],\r\n            \"Queryable\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Sortable\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"HasOption\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaKey}}\",\r\n         \"Type\":\"EnumField<StringItem>\",\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Name\":\"Sync With HubSpot Update\",\r\n         \"Inactive\":true,\r\n         \"Attributes\":{\r\n            \"MultiSelect\":false\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to update an existing user-defined field in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8144832a-8ad6-4144-a592-f375dbb52eda",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"SchemaKey\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaKey}}\",\r\n         \"Type\":\"EnumField<StringItem>\",\r\n         \"AppliesTo\":[\"AbEntry\"]\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete a user-defined field from the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata – Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"0.4\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"Schema\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Data\":{\r\n         \"AppliesTo\":\"AbEntry\"\r\n      },\r\n      \"Options\":{\r\n         \"AppliesTo\":[\r\n            1\r\n         ],\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               {\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"Uid\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            ],\r\n            \"Read\":[\r\n               {\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"Uid\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            ]\r\n         },\r\n         \"Creator\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"UID\":1\r\n            },\r\n            \"DisplayValue\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaGetFieldOptions",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaGetFieldOptions"
+					]
+				},
+				"description": "Use the `SchemaGetFieldOptions` method to retrieve the options for table-valued fields of Schema objects."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "96afba58-09a1-4391-ad6d-3a09e7926a16",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// If we are calling the Authenticate, TokenValid, or GetSystemInfo",
+					"// methods, we don't need a valid token and can skip the rest",
+					"let path = pm.request.url.getPath().toLowerCase();",
+					"if(path.endsWith(\"authenticate\") ",
+					"   || path.endsWith(\"tokenvalid\")",
+					"   || path.endsWith(\"getsysteminfo\")) {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7afdc073-0ffe-497e-8ce8-a61f52a4acae",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
