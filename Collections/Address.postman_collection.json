@@ -1,294 +1,288 @@
 {
 	"info": {
-		"_postman_id": "a015f22d-5f62-4561-b32a-a604a6d118e4",
+		"_postman_id": "d0f284e3-cbac-4581-b51e-f989a1e3df80",
 		"name": "Address",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Address",
-			"description": "",
-			"item": [
+			"name": "Create - Address",
+			"event": [
 				{
-					"name": "Create - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "3afe2582-3b51-4b55-826f-7cc19f2eee24",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData && jsonData.Address && jsonData.Address.Data) {   ",
-									"    pm.environment.set(\"AddressKey\", jsonData.Address.Data.Key);",
-									"   ",
-									"}"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"ParentKey\":\"{{AbEntryKey}}\",\r\n         \"Description\":\"Address created from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\",\r\n         \"Default\":true\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Create",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Create"
-							]
-						},
-						"description": "Use the `Create` method to create an Address object in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Read - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Read - Address (Detailed)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1,\r\n            \"Default\":1,\r\n            \"ParentKey\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Update - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "77b01c0a-2d43-42e8-bbb0-f0887f9d02e7",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\",\r\n         \"Description\":\"Address Updated from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\"\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Update",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Update"
-							]
-						},
-						"description": "Use the `Update` method to update an Address object in the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "98409cba-4da4-4488-9d90-70a06d5139f9",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData.Code === 0) {",
-									"    pm.environment.unset(\"AddressKey\");",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\"\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Delete",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Delete"
-							]
-						},
-						"description": "Use the `Delete` method to delete an Address object from the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Metadata - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"Address\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"SchemaRead"
-							]
-						},
-						"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
-					},
-					"response": []
-				},
-				{
-					"name": "Options - Address",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Options\":{\r\n         \"City\":1,\r\n         \"Country\":1\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/AddressGetFieldOptions",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"AddressGetFieldOptions"
-							]
-						},
-						"description": "Use the `AddressGetFieldOptions` method to retrieve a list of the table-value field options for Address objects."
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "3afe2582-3b51-4b55-826f-7cc19f2eee24",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Address && jsonData.Address.Data) {   ",
+							"    pm.environment.set(\"AddressKey\", jsonData.Address.Data.Key);",
+							"   ",
+							"}"
+						]
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"ParentKey\":\"{{AbEntryKey}}\",\r\n         \"Description\":\"Address created from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\",\r\n         \"Default\":true\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create an Address object in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Address (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"ParentKey\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"ID\":1,\r\n               \"Number\":1,\r\n               \"EntityType\":1\r\n            },\r\n            \"Description\":1,\r\n            \"AddressLine1\":1,\r\n            \"AddressLine2\":1,\r\n            \"City\":1,\r\n            \"Country\":1,\r\n            \"StateProvince\":1,\r\n            \"ZipCode\":1,\r\n            \"Default\":1,\r\n            \"ParentKey\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of Address objects in the database.\n\nNOTE: you must run the `Create - AbEntry (Company)` request before this one so that the `AbEntryKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77b01c0a-2d43-42e8-bbb0-f0887f9d02e7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\",\r\n         \"Description\":\"Address Updated from Postman\",\r\n         \"AddressLine1\":\"1234 Test Streest\",\r\n         \"AddressLine2\":\"1234 2nd test Street\",\r\n         \"City\":\"Vancouver\",\r\n         \"Country\":\"Canada\",\r\n         \"StateProvince\":\"BC\",\r\n         \"ZipCode\":\"V3T1P3\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to update an Address object in the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "98409cba-4da4-4488-9d90-70a06d5139f9",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"AddressKey\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{AddressKey}}\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete an Address object from the database.\n\nNOTE: you must run the `Create - Addres` request before this one so that the `AddressKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata - Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"Address\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - Address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Address\":{\r\n      \"Options\":{\r\n         \"City\":1,\r\n         \"Country\":1\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/AddressGetFieldOptions",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"AddressGetFieldOptions"
+					]
+				},
+				"description": "Use the `AddressGetFieldOptions` method to retrieve a list of the table-value field options for Address objects."
+			},
+			"response": []
 		}
 	],
 	"event": [

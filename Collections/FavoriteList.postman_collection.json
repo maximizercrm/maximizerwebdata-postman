@@ -1,323 +1,317 @@
 {
 	"info": {
-		"_postman_id": "234a0f77-a81e-4048-ab37-93ae4ae7b376",
+		"_postman_id": "98591153-9895-40ce-9a00-9deaeb6b6812",
 		"name": "FavoriteList",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "FavoriteList",
-			"description": null,
-			"item": [
+			"name": "Create - FavoriteList",
+			"event": [
 				{
-					"name": "Create - FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "fd07eb52-c955-4fd4-bda3-006f8fb6a260",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData && jsonData.FavoriteList && jsonData.FavoriteList.Data) {   ",
-									"    pm.environment.set(\"FavoriteListKey\", jsonData.FavoriteList.Data.Key);",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"Name\":\"FavoriteList Name\",\r\n         \"EntityType\":1,\r\n         \"Description\":\"FavoriteList Description\",\r\n         \"MemberKeys\":[\"{{AbEntryKey}}\"],\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               \"VXNlcglNQVNURVI=\"\r\n            ],\r\n            \"Read\":[\r\n               \"VXNlcglNQVNURVI=\"\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Create",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Create"
-							]
-						},
-						"description": "Use the `Create` method to create a new Favorite List in the database.\n\nNOTE: You must run the Create AbEntry (Company) request *before* running this one so that the `AbEntryKey` environment variable is set."
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "fd07eb52-c955-4fd4-bda3-006f8fb6a260",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.FavoriteList && jsonData.FavoriteList.Data) {   ",
+							"    pm.environment.set(\"FavoriteListKey\", jsonData.FavoriteList.Data.Key);",
+							"}"
+						]
+					}
 				},
 				{
-					"name": "Read - FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{FavoriteListKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Name\":1,\r\n            \"EntityType\":1,\r\n            \"Description\":1,\r\n            \"MemberKeys\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"SecAccess\":{\r\n               \"Read\":1,\r\n               \"Write\":1\r\n            },\r\n            \"SecStatus\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to search for Favorite Lists in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Read - FavoriteList (Detailed)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{FavoriteListKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"TypeId\":1\r\n            },\r\n            \"Name\":1,\r\n            \"EntityType\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Description\":1,\r\n            \"MemberKeys\":1,\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SecAccess\":{\r\n               \"Read\":{\r\n                  \"Key\":{\r\n                     \"UID\":1,\r\n                     \"Value\":1\r\n                  },\r\n                  \"DisplayName\":1\r\n               },\r\n               \"Write\":{\r\n                  \"Key\":{\r\n                     \"UID\":1,\r\n                     \"Value\":1\r\n                  },\r\n                  \"DisplayName\":1\r\n               }\r\n            },\r\n            \"SecStatus\":{\r\n               \"CanRead\":1,\r\n               \"CanUpdate\":1,\r\n               \"CanDelete\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to search for Favorite Lists in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set, as it is used in the search query."
-					},
-					"response": []
-				},
-				{
-					"name": "Update - FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{FavoriteListKey}}\",\r\n         \"Name\":\"FavoriteList Name Update\",\r\n         \"Description\":\"FavoriteList Description Update\",\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               \"VXNlcgkq\"\r\n            ],\r\n            \"Read\":[\r\n               \"VXNlcgkq\"\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Update",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Update"
-							]
-						},
-						"description": "Use the `Update` method to update an existing Favorite List in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete - FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "895a8c02-aa66-44e4-80f5-589c0dfdb3b0",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData.Code === 0) {",
-									"    pm.environment.unset(\"FavoriteListKey\");",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{FavoriteListKey}}\"\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Delete",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Delete"
-							]
-						},
-						"description": "Use the `Delete` method to delete a Favorite List from the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Metadata – FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"1.1\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$TREE\":\"/FavoriteList\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"SchemaRead"
-							]
-						},
-						"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
-					},
-					"response": []
-				},
-				{
-					"name": "Options - FavoriteList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FieldOption\":{\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"FavoriteList\":{\r\n               \"SecAccess\":{\r\n                  \"Write\":[\r\n                     {\r\n                        \"Key\":{\r\n                           \"Value\":1,\r\n                           \"Uid\":1\r\n                        },\r\n                        \"DisplayValue\":1\r\n                     }\r\n                  ],\r\n                  \"Read\":[\r\n                     {\r\n                        \"Key\":{\r\n                           \"Value\":1,\r\n                           \"Uid\":1\r\n                        },\r\n                        \"DisplayValue\":1\r\n                     }\r\n                  ]\r\n               }\r\n            }\r\n         }\r\n      },\r\n      \"Data\":{\r\n         \"FavoriteList\":{\r\n            \"EntityType\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to retrieve FieldOptions objects representing the options for table-valued fields of entities in the database."
-					},
-					"response": []
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"Name\":\"FavoriteList Name\",\r\n         \"EntityType\":1,\r\n         \"Description\":\"FavoriteList Description\",\r\n         \"MemberKeys\":[\"{{AbEntryKey}}\"],\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               \"VXNlcglNQVNURVI=\"\r\n            ],\r\n            \"Read\":[\r\n               \"VXNlcglNQVNURVI=\"\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a new Favorite List in the database.\n\nNOTE: You must run the Create AbEntry (Company) request *before* running this one so that the `AbEntryKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - FavoriteList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{FavoriteListKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Name\":1,\r\n            \"EntityType\":1,\r\n            \"Description\":1,\r\n            \"MemberKeys\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"SecAccess\":{\r\n               \"Read\":1,\r\n               \"Write\":1\r\n            },\r\n            \"SecStatus\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for Favorite Lists in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - FavoriteList (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{FavoriteListKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"TypeId\":1\r\n            },\r\n            \"Name\":1,\r\n            \"EntityType\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Description\":1,\r\n            \"MemberKeys\":1,\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"SecAccess\":{\r\n               \"Read\":{\r\n                  \"Key\":{\r\n                     \"UID\":1,\r\n                     \"Value\":1\r\n                  },\r\n                  \"DisplayName\":1\r\n               },\r\n               \"Write\":{\r\n                  \"Key\":{\r\n                     \"UID\":1,\r\n                     \"Value\":1\r\n                  },\r\n                  \"DisplayName\":1\r\n               }\r\n            },\r\n            \"SecStatus\":{\r\n               \"CanRead\":1,\r\n               \"CanUpdate\":1,\r\n               \"CanDelete\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for Favorite Lists in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set, as it is used in the search query."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - FavoriteList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{FavoriteListKey}}\",\r\n         \"Name\":\"FavoriteList Name Update\",\r\n         \"Description\":\"FavoriteList Description Update\",\r\n         \"SecAccess\":{\r\n            \"Write\":[\r\n               \"VXNlcgkq\"\r\n            ],\r\n            \"Read\":[\r\n               \"VXNlcgkq\"\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to update an existing Favorite List in the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - FavoriteList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "895a8c02-aa66-44e4-80f5-589c0dfdb3b0",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"FavoriteListKey\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FavoriteList\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{FavoriteListKey}}\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete a Favorite List from the database.\n\nNOTE: You must run the Create Favorite List request *before* running this one so that the `FavoriteListKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata – FavoriteList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"1.1\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$TREE\":\"/FavoriteList\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - FavoriteList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FieldOption\":{\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"FavoriteList\":{\r\n               \"SecAccess\":{\r\n                  \"Write\":[\r\n                     {\r\n                        \"Key\":{\r\n                           \"Value\":1,\r\n                           \"Uid\":1\r\n                        },\r\n                        \"DisplayValue\":1\r\n                     }\r\n                  ],\r\n                  \"Read\":[\r\n                     {\r\n                        \"Key\":{\r\n                           \"Value\":1,\r\n                           \"Uid\":1\r\n                        },\r\n                        \"DisplayValue\":1\r\n                     }\r\n                  ]\r\n               }\r\n            }\r\n         }\r\n      },\r\n      \"Data\":{\r\n         \"FavoriteList\":{\r\n            \"EntityType\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to retrieve FieldOptions objects representing the options for table-valued fields of entities in the database."
+			},
+			"response": []
 		}
 	],
 	"event": [

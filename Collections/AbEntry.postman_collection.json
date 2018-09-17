@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a0b0c49c-b0b2-4fed-a1f1-2692f9fcbd70",
+		"_postman_id": "55ec032f-67a7-4cb3-bd69-97ecfcad4c22",
 		"name": "AbEntry",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -74,42 +74,6 @@
 					]
 				},
 				"description": "Use the `AbEntryRead` method to search for Address Book entries in the database."
-			},
-			"response": []
-		},
-		{
-			"name": "Read - AbEntry (ColumnSetupView)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"AbEntry\":{\r\n      \"Scope\":{\r\n         \"Columns\":{\r\n            \"1\":\"Account Manager: {{AccountManager/DisplayValue}}\",\r\n            \"2\":\"Address Line1: {{Address/AddressLine1}}\",\r\n            \"3\":\"Address Line2: {{Address/AddressLine2}}\",\r\n            \"4\":\"Category: {{Category/DisplayValue}}\",\r\n            \"5\":\"City / Town: {{Address/City}}\",\r\n            \"6\":\"Client Name: {%IF {{Parent}} == NULL %}{{FullName}}{%ELSE%}{{Parent/DisplayValue}}{%ENDIF%}\",\r\n            \"7\":\"Company: {{CompanyName}}\",\r\n            \"8\":\"Contact Number: {{Key/Number}}\",\r\n            \"9\":\"Country: {{Address/Country}}\",\r\n            \"10\":\"Creation Date: {{CreationDate/DisplayValue}}\",\r\n            \"11\":\"Creator: {{Creator/DisplayValue}}\",\r\n            \"12\":\"Date Last Contacted: {{LastContactDate/DisplayValue}}\",\r\n            \"13\":\"Department: {{Department}}\",\r\n            \"14\":\"Division: {{Division}}\",\r\n            \"15\":\"Do not Solicit by: {{DoNotSolicitBy/DisplayValue}}\",\r\n            \"16\":\"Email Address: {{Email1/Address}}\",\r\n            \"17\":\"Email Address 2: {{Email2/Address}}\",\r\n            \"18\":\"Email Address 3: {{Email3/Address}}\",\r\n            \"19\":\"Email Description: {{Email1/Description}}\",\r\n            \"20\":\"Email Description 2: {{Email2/Description}}\",\r\n            \"21\":\"Email Description 3: {{Email3/Description}}\",\r\n            \"22\":\"Email opt-in type: Not Supported\",\r\n            \"23\":\"Entry Type: {{CreationDate/DisplayValue}}\",\r\n            \"24\":\"Entry Type Icon: {{Type/DisplayValue}}\",\r\n            \"25\":\"External Site Login ID: Not Supported\",\r\n            \"26\":\"First Name: {{FirstName}}\",\r\n            \"27\":\"Full Access: {{SecAccess/Write/DisplayValue}}\",\r\n            \"28\":\"IDentification: {{Key/Id}}\",\r\n            \"29\":\"Last Modified Date: {{LastModifyDate/DisplayValue}}\",\r\n            \"30\":\"Last Name: {{LastName}}\",\r\n            \"31\":\"Lead Status: {{Udf/$TYPEID(57998)/DisplayValue}}\",\r\n            \"32\":\"MaxExchange Distribution: {{MaxExchangeDist/DisplayValue}}\",\r\n            \"33\":\"Middle Name: {{MiddleName}}\",\r\n            \"34\":\"Modified By: {{ModifiedBy/DisplayValue}}\",\r\n            \"35\":\"Mr/Ms: {{MrMs}}\",\r\n            \"36\":\"Name: {%IF {{Parent}} == NULL %}{{FullName}}{%ELSE%}{{Parent/DisplayValue}}{%ENDIF%}\",\r\n            \"37\":\"Partner: {{Partner/DisplayValue}}\",\r\n            \"38\":\"Phone 1: {{Phone1/Number}}\",\r\n            \"39\":\"Phone 1 Description: {{Phone1/Description}}\",\r\n            \"40\":\"Phone 1 Extension: {{Phone1/Extension}}\",\r\n            \"41\":\"Phone 2: {{Phone2/Number}}\",\r\n            \"42\":\"Phone 2 Description: {{Phone2/Description}}\",\r\n            \"43\":\"Phone 2 Extension: {{Phone2/Extension}}\",\r\n            \"44\":\"Phone 3: {{Phone3/Number}}\",\r\n            \"45\":\"Phone 3 Description: {{Phone3/Description}}\",\r\n            \"46\":\"Phone 3 Extension: {{Phone3/Extension}}\",\r\n            \"47\":\"Phone 4: {{Phone4/Number}}\",\r\n            \"48\":\"Phone 4 Description: {{Phone4/Description}}\",\r\n            \"49\":\"Phone 4 Extension: {{Phone4/Extension}}\",\r\n            \"50\":\"Position: {{Position}}\",\r\n            \"51\":\"Read Access: {{SecAccess/Read/DisplayValue}}\",\r\n            \"52\":\"Receives Mail: Not Supported\",\r\n            \"53\":\"Relationship Type: Not Supported\",\r\n            \"54\":\"Reports To: {{ReportsTo/DisplayValue}}\",\r\n            \"55\":\"Sales Lead: {{Lead/DisplayValue}}\",\r\n            \"56\":\"Salutation: {{Salutation}}\",\r\n            \"57\":\"Security: {%IF {{SecAccess/Write}} == \\\"*\\\" %}Public{%ELSE%}Private{%ENDIF%}\",\r\n            \"58\":\"State / County / Province: {{Address/StateProvince}}\",\r\n            \"59\":\"Territory: {{Territory/DisplayValue}}\",\r\n            \"60\":\"Territory Status: {{TerritoryStatus/DisplayValue}}\",\r\n            \"61\":\"Website: {{WebSite}}\",\r\n            \"62\":\"Zip / Postal Code: {{Address/ZipCode}}\"\r\n         },\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"Id\":1,\r\n               \"Number\":1\r\n            },\r\n            \"FirstName\":1,\r\n            \"Creator\":{\r\n               \"UID\":1,\r\n               \"Key\":1\r\n            }\r\n         }\r\n      },\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{AbEntryKey}}\"\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
-				},
-				"url": {
-					"raw": "{{BaseURL}}/Data.svc/json/Read",
-					"host": [
-						"{{BaseURL}}"
-					],
-					"path": [
-						"Data.svc",
-						"json",
-						"Read"
-					]
-				},
-				"description": "Use the `Read` method to query the data of `AbEntry` objects in the database. You can supply a `Columns` object to format the output in the response.\n```\n\"Columns\":[{              \n   \"FieldKey\":1,\n   \"Header\":1,\n   \"Template\":1,\n   \"Width\":1,\n   \"AlignH\":1\n}]\n```\nNOTE: You must run the `AbEntryCreate` request *before* running this one so that the `AbEntryKey` environment variable is set."
 			},
 			"response": []
 		},
@@ -396,7 +360,7 @@
 			"response": []
 		},
 		{
-			"name": "FieldOptions - AbEntry (Generic)",
+			"name": "Options - AbEntry (Generic)",
 			"event": [
 				{
 					"listen": "test",
@@ -442,7 +406,7 @@
 			"response": []
 		},
 		{
-			"name": "FieldOptions - AbEntry (Specific Entry)",
+			"name": "Options - AbEntry (Specific Entry)",
 			"event": [
 				{
 					"listen": "test",

@@ -1,201 +1,194 @@
 {
 	"info": {
+		"_postman_id": "6b211832-f88e-42bd-aa1c-a5a9974099b7",
 		"name": "Authentication",
-		"_postman_id": "e83e667c-a57e-49b0-bc1d-0a96e32286b8",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Authentication",
-			"description": null,
-			"item": [
+			"name": "Authenticate (CRM Live)",
+			"event": [
 				{
-					"name": "Authenticate (CRM Live)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a886b85d-724f-4429-9266-af2be45f90e6",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Response Code is 0\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.Code).to.eql(0);",
-									"    if(jsonData.Data && jsonData.Data.Token) {",
-									"        // Store the new token in the environment variable",
-									"        // so that we can use it in subsequent requests",
-									"        pm.environment.set(\"Token\", jsonData.Data.Token);",
-									"    }",
-									"});"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "3535abfc-3890-4034-bc29-c35f046ffa70",
-								"type": "text/javascript",
-								"exec": [
-									"if(!pm.environment.get(\"Database\")) {",
-									"    console.log(\"The Database environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"UID\")) {",
-									"    console.log(\"The UID environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"Password\")) {",
-									"    console.log(\"The Password environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"VendorId\")) {",
-									"    console.log(\"The VendorId environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"AppKey\")) {",
-									"    console.log(\"The AppKey environment variable is required.\");",
-									"}"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Database\":\"{{Database}}\",\r\n   \"UID\":\"{{UID}}\",\r\n   \"Password\":\"{{Password}}\",\r\n   \"VendorId\":\"{{VendorId}}\",\r\n   \"AppKey\":\"{{AppKey}}\"\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Authenticate",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Authenticate"
-							]
-						},
-						"description": "Use the `Authenticate` method to obtain an API access token that you can use in subsequent requests."
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "a886b85d-724f-4429-9266-af2be45f90e6",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response Code is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Code).to.eql(0);",
+							"    if(jsonData.Data && jsonData.Data.Token) {",
+							"        // Store the new token in the environment variable",
+							"        // so that we can use it in subsequent requests",
+							"        pm.environment.set(\"Token\", jsonData.Data.Token);",
+							"    }",
+							"});"
+						]
+					}
 				},
 				{
-					"name": "Authenticate (on-premise)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "795e9bf6-0014-4c84-8da7-1b28a37c921e",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Response Code is 0\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.Code).to.eql(0);",
-									"    if(jsonData.Data && jsonData.Data.Token) {",
-									"        // Store the new token in the environment variable",
-									"        // so that we can use it in subsequent requests",
-									"        pm.environment.set(\"Token\", jsonData.Data.Token);",
-									"    }",
-									"});",
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "ec327f10-b508-47b4-8ba1-857142b02222",
-								"type": "text/javascript",
-								"exec": [
-									"if(!pm.environment.get(\"Database\")) {",
-									"    console.log(\"The Database environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"UID\")) {",
-									"    console.log(\"The UID environment variable is required.\");",
-									"}",
-									"if(!pm.environment.get(\"Password\")) {",
-									"    console.log(\"The Password environment variable is required.\");",
-									"}"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Database\":\"{{Database}}\",\r\n   \"UID\":\"{{UID}}\",\r\n   \"Password\":\"{{Password}}\"\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Authenticate",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Authenticate"
-							]
-						},
-						"description": "Use the `Authenticate` method to obtain an API access token that you can use in subsequent requests."
-					},
-					"response": []
-				},
-				{
-					"name": "TokenValid",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "0af55e07-95cb-4535-8404-5a8e867bca6f",
-								"type": "text/javascript",
-								"exec": [
-									"if(!pm.environment.get(\"Token\")) {",
-									"    console.log(\"The Token environment variable is required.\");",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "a10fa3d1-33f5-464c-a3f3-bdd879cc00bb",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\"\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/TokenValid",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"TokenValid"
-							]
-						},
-						"description": "Use the `TokenValid` method to check whether or not your API access token is valid before making subsequent requests.\n\nNOTE: You must run the `Authenticate` request before running this one so that the `Token` environment variable is set."
-					},
-					"response": []
+					"listen": "prerequest",
+					"script": {
+						"id": "3535abfc-3890-4034-bc29-c35f046ffa70",
+						"type": "text/javascript",
+						"exec": [
+							"if(!pm.environment.get(\"Database\")) {",
+							"    console.log(\"The Database environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"UID\")) {",
+							"    console.log(\"The UID environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"Password\")) {",
+							"    console.log(\"The Password environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"VendorId\")) {",
+							"    console.log(\"The VendorId environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"AppKey\")) {",
+							"    console.log(\"The AppKey environment variable is required.\");",
+							"}"
+						]
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Database\":\"{{Database}}\",\r\n   \"UID\":\"{{UID}}\",\r\n   \"Password\":\"{{Password}}\",\r\n   \"VendorId\":\"{{VendorId}}\",\r\n   \"AppKey\":\"{{AppKey}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Authenticate",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Authenticate"
+					]
+				},
+				"description": "Use the `Authenticate` method to obtain an API access token that you can use in subsequent requests."
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate (on-premise)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "795e9bf6-0014-4c84-8da7-1b28a37c921e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response Code is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Code).to.eql(0);",
+							"    if(jsonData.Data && jsonData.Data.Token) {",
+							"        // Store the new token in the environment variable",
+							"        // so that we can use it in subsequent requests",
+							"        pm.environment.set(\"Token\", jsonData.Data.Token);",
+							"    }",
+							"});",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ec327f10-b508-47b4-8ba1-857142b02222",
+						"type": "text/javascript",
+						"exec": [
+							"if(!pm.environment.get(\"Database\")) {",
+							"    console.log(\"The Database environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"UID\")) {",
+							"    console.log(\"The UID environment variable is required.\");",
+							"}",
+							"if(!pm.environment.get(\"Password\")) {",
+							"    console.log(\"The Password environment variable is required.\");",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Database\":\"{{Database}}\",\r\n   \"UID\":\"{{UID}}\",\r\n   \"Password\":\"{{Password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Authenticate",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Authenticate"
+					]
+				},
+				"description": "Use the `Authenticate` method to obtain an API access token that you can use in subsequent requests."
+			},
+			"response": []
+		},
+		{
+			"name": "TokenValid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0af55e07-95cb-4535-8404-5a8e867bca6f",
+						"type": "text/javascript",
+						"exec": [
+							"if(!pm.environment.get(\"Token\")) {",
+							"    console.log(\"The Token environment variable is required.\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a10fa3d1-33f5-464c-a3f3-bdd879cc00bb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/TokenValid",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"TokenValid"
+					]
+				},
+				"description": "Use the `TokenValid` method to check whether or not your API access token is valid before making subsequent requests.\n\nNOTE: You must run the `Authenticate` request before running this one so that the `Token` environment variable is set."
+			},
+			"response": []
 		}
 	],
 	"event": [

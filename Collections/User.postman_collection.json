@@ -1,87 +1,81 @@
 {
 	"info": {
-		"_postman_id": "aafa425d-a7e5-4997-b18c-02a69530dd93",
+		"_postman_id": "9969d2dd-1c43-4dea-b4a4-f82d98de885b",
 		"name": "User",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "User",
-			"description": null,
-			"item": [
+			"name": "Read Users (Simple)",
+			"event": [
 				{
-					"name": "Read Users (Simple)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"Token\":\"{{Token}}\",\r\n    \"User\":{\r\n        \"Criteria\":{\r\n            \"SearchQuery\":{\r\n                \"FirstName\":{\r\n                    \"$LIKE\":\"%\"\r\n                }\r\n            }\r\n        },\r\n        \"Scope\":{\r\n            \"Fields\":{\r\n                \"Key\":1,\r\n                \"Password\":1,\r\n                \"AccessType\":1,\r\n                \"FirstName\":1,\r\n                \"LastName\":1,\r\n                \"DisplayName\":1,\r\n                \"Disabled\":1\r\n            }\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/UserRead",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"UserRead"
-							]
-						},
-						"description": "Use the `UserRead` method to search for users in the database."
-					},
-					"response": []
-				},
-				{
-					"name": "Read Users (Detailed)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"User\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"FirstName\":{\r\n               \"$LIKE\":\"%\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Password\":1,\r\n            \"AccessType\":1,\r\n            \"FirstName\":1,\r\n            \"LastName\":1,\r\n            \"DisplayName\":1,\r\n            \"Disabled\":1,\r\n            \"Roles\":{\r\n               \"Administrator\":1,\r\n               \"SalesManager\":1,\r\n               \"SalesRepresentative\":1,\r\n               \"CustomerServiceManager\":1,\r\n               \"CustomerServiceRepresentative\":1,\r\n               \"KnowledgeBaseApprover\":1\r\n            },\r\n            \"Permissions\":{\r\n               \"AccountSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"UserDefinedFieldSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"AddressBook\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"AltAddress\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"CustomerService\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Opportunity\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"UserDefinedFields\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Notes\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Documents\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"KnowledgeBase\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Campaign\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"ActionPlanLibrary\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"CompanyLibrary\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Quota\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Dashboard\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"ProductSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               }\r\n            },\r\n            \"Privileges\":{\r\n               \"GlobalEdit\":1,\r\n               \"PublicEntries\":1,\r\n               \"PrivateEntries\":1,\r\n               \"Import\":1,\r\n               \"Export\":1,\r\n               \"SyncContacts\":1,\r\n               \"ModifySystemTables\":1,\r\n               \"ModifyNoteProperties\":1,\r\n               \"ModifyEmailTemplates\":1,\r\n               \"ModifyKeyFields\":1,\r\n               \"BypassUserDetailPermissions\":1,\r\n               \"BypassEntryPermissions\":1,\r\n               \"BypassNotePermissions\":1,\r\n               \"ManageCurrencies\":1,\r\n               \"AccessAuditLog\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/UserRead",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"UserRead"
-							]
-						},
-						"description": "Use the `UserRead` method to search for users in the database."
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Token\":\"{{Token}}\",\r\n    \"User\":{\r\n        \"Criteria\":{\r\n            \"SearchQuery\":{\r\n                \"FirstName\":{\r\n                    \"$LIKE\":\"%\"\r\n                }\r\n            }\r\n        },\r\n        \"Scope\":{\r\n            \"Fields\":{\r\n                \"Key\":1,\r\n                \"Password\":1,\r\n                \"AccessType\":1,\r\n                \"FirstName\":1,\r\n                \"LastName\":1,\r\n                \"DisplayName\":1,\r\n                \"Disabled\":1\r\n            }\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/UserRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"UserRead"
+					]
+				},
+				"description": "Use the `UserRead` method to search for users in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Read Users (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"User\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"FirstName\":{\r\n               \"$LIKE\":\"%\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Password\":1,\r\n            \"AccessType\":1,\r\n            \"FirstName\":1,\r\n            \"LastName\":1,\r\n            \"DisplayName\":1,\r\n            \"Disabled\":1,\r\n            \"Roles\":{\r\n               \"Administrator\":1,\r\n               \"SalesManager\":1,\r\n               \"SalesRepresentative\":1,\r\n               \"CustomerServiceManager\":1,\r\n               \"CustomerServiceRepresentative\":1,\r\n               \"KnowledgeBaseApprover\":1\r\n            },\r\n            \"Permissions\":{\r\n               \"AccountSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"UserDefinedFieldSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"AddressBook\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"AltAddress\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"CustomerService\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Opportunity\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"UserDefinedFields\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Notes\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Documents\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"KnowledgeBase\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Campaign\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"ActionPlanLibrary\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"CompanyLibrary\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Quota\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"Dashboard\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               },\r\n               \"ProductSetup\":{\r\n                  \"Create\":1,\r\n                  \"Read\":1,\r\n                  \"Update\":1,\r\n                  \"Delete\":1\r\n               }\r\n            },\r\n            \"Privileges\":{\r\n               \"GlobalEdit\":1,\r\n               \"PublicEntries\":1,\r\n               \"PrivateEntries\":1,\r\n               \"Import\":1,\r\n               \"Export\":1,\r\n               \"SyncContacts\":1,\r\n               \"ModifySystemTables\":1,\r\n               \"ModifyNoteProperties\":1,\r\n               \"ModifyEmailTemplates\":1,\r\n               \"ModifyKeyFields\":1,\r\n               \"BypassUserDetailPermissions\":1,\r\n               \"BypassEntryPermissions\":1,\r\n               \"BypassNotePermissions\":1,\r\n               \"ManageCurrencies\":1,\r\n               \"AccessAuditLog\":1\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/UserRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"UserRead"
+					]
+				},
+				"description": "Use the `UserRead` method to search for users in the database."
+			},
+			"response": []
 		}
 	],
 	"event": [

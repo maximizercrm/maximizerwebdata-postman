@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8e97cd1a-f790-425e-be88-0ca97d6c45c6",
+		"_postman_id": "d10772ac-2987-42a3-b85e-8991cbd44071",
 		"name": "Opportunity",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -208,42 +208,6 @@
 					]
 				},
 				"description": "Use the `OpportunityRead` method to search for opportunities in the database."
-			},
-			"response": []
-		},
-		{
-			"name": "Read - Opportunity (ColumnSetupView)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Opportunity\":{\r\n      \"Scope\":{\r\n         \"Columns\":{\r\n            \"1\":\"Actual Revenue: {{ActualRevenue/DisplayValue}}\",\r\n            \"2\":\"Campaign: Not Supported\",\r\n            \"3\":\"Categories: {{Category/DisplayValue}}\",\r\n            \"4\":\"Close Date: {{CloseDate/DisplayValue}}\",\r\n            \"5\":\"Company/Individual: {%IF {{AbEntry/Type}} == \\\"Individual\\\" %}{{AbEntry/FullName}}{%ELSE%}{{AbEntry/CompanyName}}{%ENDIF%}\",\r\n            \"6\":\"Competitors in this Opportunity: Not Supported\",\r\n            \"7\":\"Completion Comment: {{Comment}}\",\r\n            \"8\":\"Completion Reason: {{Reason/DisplayValue}}\",\r\n            \"9\":\"Confidence Rating: {{Rating/DisplayValue}}\",\r\n            \"10\":\"Contact Name: {{Contact/FullName}}\",\r\n            \"11\":\"Cost: {{Cost/DisplayValue}}\",\r\n            \"12\":\"Creation Date: {{CreationDate/DisplayValue}}\",\r\n            \"13\":\"Creator: {{Creator/DisplayValue}}\",\r\n            \"14\":\"Current Stage Age: {{CurrentSalesStageAge/DisplayValue}}\",\r\n            \"15\":\"Current Stage Age Gap:  Not Supported\",\r\n            \"16\":\"Current Stage Target Age: {%IF {{CurrentSalesStage/TargetAge}} != 0 %}{{CurrentSalesStage/TargetAge}}{%ENDIF%}\",\r\n            \"17\":\"Description: {{Description}}\",\r\n            \"18\":\"Forecasted Revenue: {{ForecastRevenue/DisplayValue}}\",\r\n            \"19\":\"IDentification: {{Key/Id}}\",\r\n            \"20\":\"Last Modified Date: {{LastModifyDate/DisplayValue}}\",\r\n            \"21\":\"Leader: {{Leader/DisplayValue}}\",\r\n            \"22\":\"Lost To: Not Supported\",\r\n            \"23\":\"Modified By: {{ModifiedBy/DisplayValue}}\",\r\n            \"24\":\"Next Action: Not Supported\",\r\n            \"25\":\"Objective: {{Objective}}\",\r\n            \"26\":\"Opportunity Age: {%IF {{Status}} > 2 %}{@DATEDIFF({{StartDate}},{{CloseDate}})@}{%ELSE%}{@DATEDIFF({{StartDate}},{{$NOW()}})@}{%ENDIF%} days\",\r\n            \"27\":\"Partners in this Opportunity: Not Supported\",\r\n            \"28\":\"Probability Closing: {{CurrentSalesStage/ProbabilityClose}}%\",\r\n            \"29\":\"Process: {{SalesProcess/Description}}\",\r\n            \"30\":\"Products/Services: {{Product/DisplayValue}}\",\r\n            \"31\":\"Projected Close Date: Not Supported\",\r\n            \"32\":\"Revenue: {%IF {{Status}} == 3 %}{{ActualRevenue/DisplayValue}}{%ELSE%}{{ForecastRevenue/DisplayValue}}{%ENDIF%}\",\r\n            \"33\":\"Stage: {{Stage}}\",\r\n            \"34\":\"Start Date: {{StartDate/DisplayValue}}\",\r\n            \"35\":\"Status: {{Status/DisplayValue}}\",\r\n            \"36\":\"Strategy: Not Supported\",\r\n            \"37\":\"Team Name: {{SalesTeam/DisplayName}}\",\r\n            \"38\":\"User Close Date: Not Supported\",\r\n            \"39\":\"Currency: Not Supported\",\r\n            \"40\":\"Currency Code: {{ForecastRevenue/CurrencyCode}}\",\r\n            \"41\":\"Corporate Revenue: {{Cost/CurrencyCode}}{%IF {{Status}} == 3 %}{{ActualRevenue}}{%ELSE%}{{ForecastRevenue}}{%ENDIF%}\",\r\n            \"42\":\"AB Creation Date: {{AbEntry/CreationDate/DisplayValue}}\",\r\n            \"43\":\"AB Creator: {{AbEntry/Creator/DisplayValue}}\"\r\n         },\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Value\":1,\r\n               \"Id\":1,\r\n               \"Number\":1\r\n            },\r\n            \"SalesProcess\":{\r\n               \"Key\":1,\r\n               \"Description\":1\r\n            },\r\n            \"SalesTeam\":{\r\n               \"Key\":1,\r\n               \"DisplayName\":1\r\n            },\r\n            \"CurrentSalesStage\":{\r\n               \"Key\":1,\r\n               \"TargetAge\":1,\r\n               \"Description\":1,\r\n               \"Age\":1,\r\n               \"ProbabilityClose\":1\r\n            },\r\n            \"ForecastRevenue\":{\r\n               \"Value\":1,\r\n               \"CurrencyCode\":1,\r\n               \"DisplayValue\":1\r\n            }\r\n         }\r\n      },\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"$AND\":[\r\n               {\r\n                  \"CreationDate\":{\r\n                     \"$RANGE\":[\r\n                        \"2012-05-29\",\r\n                        \"2012-05-30\"\r\n                     ]\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   }\r\n}"
-				},
-				"url": {
-					"raw": "{{BaseURL}}/Data.svc/json/Read",
-					"host": [
-						"{{BaseURL}}"
-					],
-					"path": [
-						"Data.svc",
-						"json",
-						"Read"
-					]
-				},
-				"description": "Use the `Read` method to query the data of ColumnSetup objects in the database. This hasn't been implement yet as of 3/23/2018 but one it has you can add \"Columns\" to the Read request to retreive the list.\n\n\"Columns\":[{              \n                        \n                      \"FieldKey\":1,\n                      \"Header\":1,\n                      \"Template\":1,\n                      \"Width\":1,\n                      \"AlignH\":1\n                      }]"
 			},
 			"response": []
 		},
