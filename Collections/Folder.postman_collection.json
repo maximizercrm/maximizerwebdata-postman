@@ -1,323 +1,317 @@
 {
 	"info": {
-		"_postman_id": "da35974a-cb99-4e33-a251-a3376e7754a4",
+		"_postman_id": "fd39f18d-b7fe-4b70-99c9-2f820f1ff613",
 		"name": "Folder",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Folder",
-			"description": null,
-			"item": [
+			"name": "Create - Folder",
+			"event": [
 				{
-					"name": "Create - Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e6cef0c0-0246-44e8-a16b-cff175ddd1f4",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData && jsonData.SchemaFolder && jsonData.SchemaFolder.Data) {   ",
-									"    pm.environment.set(\"SchemaFolderKey\", jsonData.SchemaFolder.Data.Key);",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Name\":\"Folder Name\",\r\n         \"ParentKey\":\"VWRmU2V0dXAJMA==\",\r\n         \"Inactive\":true\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Create",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Create"
-							]
-						},
-						"description": "Use the `Create` method to create a new folder for user-defined fields."
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "e6cef0c0-0246-44e8-a16b-cff175ddd1f4",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.SchemaFolder && jsonData.SchemaFolder.Data) {   ",
+							"    pm.environment.set(\"SchemaFolderKey\", jsonData.SchemaFolder.Data.Key);",
+							"}"
+						]
+					}
 				},
 				{
-					"name": "Read - Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"AbEntry\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"AppliesTo\":1,\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to search for folders in the database."
-					},
-					"response": []
-				},
-				{
-					"name": "Read - Folder (Detailed)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{SchemaFolderKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"AppliesTo\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to search for folders in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Update - Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\",\r\n      \"Name\":\"Folder Name Update\",\r\n\r\n      \"Inactive\":false\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Update",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Update"
-							]
-						},
-						"description": "Use the `Update` method to update an existing folder in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete - Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "0e062755-1e6f-4478-99d9-1971bcee4590",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"if(jsonData.Code === 0) {",
-									"    pm.environment.unset(\"SchemaFolderKey\");",
-									"}"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\"\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Delete",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Delete"
-							]
-						},
-						"description": "Use the `Delete` method to delete a folder from the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
-					},
-					"response": []
-				},
-				{
-					"name": "Metadata – Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"1.1\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$TREE\":\"/Folder\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"SchemaRead"
-							]
-						},
-						"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
-					},
-					"response": []
-				},
-				{
-					"name": "Options - Folder",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FieldOption\":{\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"SchemaFolder\":{\r\n               \"AppliesTo\":[\r\n                  {\r\n                     \"Key\":1,\r\n                     \"Value\":1\r\n                  }\r\n               ],\r\n               \"Creator\":{\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"UID\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            }\r\n         }\r\n      },\r\n      \"Data\":{\r\n         \"SchemaFolder\":{\r\n            \"AppliesTo\":\"AbEntry\"\r\n         }\r\n      }\r\n   }\r\n}"
-						},
-						"url": {
-							"raw": "{{BaseURL}}/Data.svc/json/Read",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"Data.svc",
-								"json",
-								"Read"
-							]
-						},
-						"description": "Use the `Read` method to query FieldOption entities to retrieve the options for table-valued fields of other objects."
-					},
-					"response": []
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":null,\r\n         \"AppliesTo\":[\r\n            \"AbEntry\"\r\n         ],\r\n         \"Name\":\"Folder Name\",\r\n         \"ParentKey\":\"VWRmU2V0dXAJMA==\",\r\n         \"Inactive\":true\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a new folder for user-defined fields."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"AppliesTo\":{\r\n               \"$IN\":[\r\n                  \"AbEntry\"\r\n               ]\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"AppliesTo\":1,\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":1,\r\n            \"Creator\":1,\r\n            \"CreationDate\":1,\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for folders in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Folder (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$EQ\":\"{{SchemaFolderKey}}\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"AppliesTo\":[\r\n               {\r\n                  \"Value\":1\r\n               }\r\n            ],\r\n            \"Name\":1,\r\n            \"Path\":1,\r\n            \"ParentFolderKey\":{\r\n               \"Id\":1,\r\n               \"Value\":1\r\n            },\r\n            \"Creator\":{\r\n               \"Key\":{\r\n                  \"Value\":1,\r\n                  \"Uid\":1\r\n               },\r\n               \"DisplayValue\":1\r\n            },\r\n            \"CreationDate\":{\r\n               \"Value\":1,\r\n               \"DisplayValue\":1\r\n            },\r\n            \"Inactive\":1,\r\n            \"ReadOnly\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to search for folders in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - Folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\",\r\n      \"Name\":\"Folder Name Update\",\r\n\r\n      \"Inactive\":false\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to update an existing folder in the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0e062755-1e6f-4478-99d9-1971bcee4590",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"SchemaFolderKey\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"SchemaFolder\":{\r\n      \"Data\":{\r\n         \"Key\":\"{{SchemaFolderKey}}\"\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete a folder from the database.\n\nNOTE: You must run the Create Folder request *before* running this one so that the `SchemaFolderKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata – Folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Compatibility\":{\r\n      \"Schema\":\"1.1\"\r\n   },\r\n   \"Schema\":{\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"Key\":{\r\n               \"$TREE\":\"/Folder\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Key\":1,\r\n            \"Type\":1,\r\n            \"Name\":1,\r\n            \"Folder\":1\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Options - Folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a80ef56b-4f61-4c4d-845d-3f94a66d7dfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"FieldOption\":{\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"SchemaFolder\":{\r\n               \"AppliesTo\":[\r\n                  {\r\n                     \"Key\":1,\r\n                     \"Value\":1\r\n                  }\r\n               ],\r\n               \"Creator\":{\r\n                  \"Key\":{\r\n                     \"Value\":1,\r\n                     \"UID\":1\r\n                  },\r\n                  \"DisplayValue\":1\r\n               }\r\n            }\r\n         }\r\n      },\r\n      \"Data\":{\r\n         \"SchemaFolder\":{\r\n            \"AppliesTo\":\"AbEntry\"\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query FieldOption entities to retrieve the options for table-valued fields of other objects."
+			},
+			"response": []
 		}
 	],
 	"event": [
