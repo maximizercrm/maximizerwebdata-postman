@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "31780366-5434-450a-9b08-e51468f20e2e",
+		"name": "Document",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create - Attachment (choose .xlsx)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1df22ad3-43c2-49e3-b687-57e9f2205435",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Attachment && jsonData.Attachment.Data) {   ",
+							"    pm.environment.set(\"AttachmentId\", jsonData.Attachment.Data.AttachmentId);",
+							"   ",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/AttachmentCreate",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"AttachmentCreate"
+					]
+				},
+				"description": "Use the `AttachmentCreate` method to upload an Attachment object in binary form and get back an AttachmentId."
+			},
+			"response": []
+		},
+		{
+			"name": "Create - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fc7492a-dfd3-4276-8beb-231d3c7f3f1c",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Document && jsonData.Document.Data) {   ",
+							"    pm.environment.set(\"DocumentKey\", jsonData.Document.Data.Key);",
+							"   ",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Data\": {\r\n\t\t\t\"Key\": null,\r\n\t\t\t\"Name\": \"Created Document From Postman\",\r\n\t\t\t\"Ext\": \".xlsx\",\r\n\t\t\t\"AttachmentId\": \"{{AttachmentId}}\",\r\n\t\t\t\"Description\": \"Testing\",\r\n\t\t\t\"ParentKey\": \"{{AbEntryKey}}\"\r\n\t\t}\r\n\t}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a Document object in the database.\n\nNOTE: You must have run the `AbEntry Create` request *before* running this one so that the `AbEntryKey` environment variable is set.\n\nYou must have run Attachment Create so that the `AttachmentId` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Create - Document (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fc7492a-dfd3-4276-8beb-231d3c7f3f1c",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData && jsonData.Document && jsonData.Document.Data) {   ",
+							"    pm.environment.set(\"DocumentKey\", jsonData.Document.Data.Key);",
+							"   ",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Data\": {\r\n\t\t\t\"Key\": null,\r\n\t\t\t\"DateTime\": \"2018-04-23\",\r\n\t\t\t\"Creator\": {\r\n\t\t\t\t\"UID\": \"{{Uid}}\"\r\n\t\t\t},\r\n\t\t\t\"Name\": \"Created Document From Postman\",\r\n\t\t\t\"Ext\": \".xlsx\",\r\n\t\t\t\"AttachmentId\": \"{{AttachmentId}}\",\r\n\t\t\t\"Description\": \"Testing\",\r\n\t\t\t\"Type\": 1,\r\n\t\t\t\"Category\": \"Comment\",\r\n\t\t\t\"ParentKey\": \"{{AbEntryKey}}\"\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Create"
+					]
+				},
+				"description": "Use the `Create` method to create a Document object in the database.\n\nNOTE: You must have run the `AbEntry Create` request *before* running this one so that the `AbEntryKey` environment variable is set.\n\nYou must have run Attachment Create so that the `AttachmentId` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Download - Document",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/DocumentDownload/{{DocumentKey}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"DocumentDownload",
+						"{{DocumentKey}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Criteria\": {\r\n\t\t\t\"SearchQuery\": {\r\n\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\"$EQ\": \"{{DocumentKey}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"Scope\": {\r\n\t\t\t\"Fields\": {\r\n\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\"DateTime\": 1,\r\n\t\t\t\t\"Creator\": 1,\r\n\t\t\t\t\"Name\": 1,\r\n\t\t\t\t\"Description\": 1,\r\n\t\t\t\t\"Category\": 1,\r\n\t\t\t\t\"SecAccess\": 1\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of Document objects in the database.\n\nNOTE: you must run the `Create - Document` request before this one so that the `DocumentKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Document (Detailed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Criteria\": {\r\n\t\t\t\"SearchQuery\": {\r\n\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\"$EQ\": \"{{DocumentKey}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"Scope\": {\r\n\t\t\t\"Fields\": {\r\n\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\"DateTime\": 1,\r\n\t\t\t\t\"Creator\": {\r\n\t\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\t\"Uid\": 1\r\n\t\t\t\t},\r\n\t\t\t\t\"Name\": 1,\r\n\t\t\t\t\"Description\": 1,\r\n\t\t\t\t\"Ext\": 1,\r\n\t\t\t\t\"Category\": 1,\r\n\t\t\t\t\"SecAccess\": {\r\n\t\t\t\t\t\"Write\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\t\t\t\"Value\": 1,\r\n\t\t\t\t\t\t\t\t\"Uid\": 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"DisplayValue\": 1\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"Read\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\t\t\t\"Value\": 1,\r\n\t\t\t\t\t\t\t\t\"Uid\": 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"DisplayValue\": 1\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of Document objects in the database.\n\nNOTE: you must run the `Create - Document` request before this one so that the `DocumentKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Document (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Criteria\": {\r\n\t\t\t\"SearchQuery\": {\r\n\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\"$EQ\": \"{{DocumentKey}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"Scope\": {\r\n\t\t\t\"Fields\": {\r\n\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\"DateTime\": 1,\r\n\t\t\t\t\"Creator\": 1,\r\n\t\t\t\t\"Name\": 1,\r\n\t\t\t\t\"Ext\": 1,\r\n\t\t\t\t\"Description\": 1,\r\n\t\t\t\t\"Type\": 1,\r\n\t\t\t\t\"Category\": 1,\r\n\t\t\t\t\"ParentKey\": 1,\r\n\t\t\t\t\"Parent\": 1,\r\n\t\t\t\t\"SecAccess\": {\r\n\t\t\t\t\t\"Write\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\t\t\t\"Value\": 1,\r\n\t\t\t\t\t\t\t\t\"Uid\": 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"DisplayValue\": 1\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"Read\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"Key\": {\r\n\t\t\t\t\t\t\t\t\"Value\": 1,\r\n\t\t\t\t\t\t\t\t\"Uid\": 1\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"DisplayValue\": 1\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				},
+				"description": "Use the `Read` method to query the data of Document objects in the database.\n\nNOTE: you must run the `Create - Document` request before this one so that the `DocumentKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Update - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77b01c0a-2d43-42e8-bbb0-f0887f9d02e7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Data\": {\r\n\t\t\t\"Key\": \"{{DocumentKey}}\",\r\n\t\t\t\"DateTime\": \"2018-04-30\",\r\n\t\t\t\"Creator\": \"VXNlcglBTUlOQkFEU0hBSA==\",\r\n\t\t\t\"Name\": \"Updated Document From Postman\",\r\n\t\t\t\"Ext\": \"Test\",\r\n\t\t\t\"Description\": \"Testing\",\r\n\t\t\t\"Type\": 1,\r\n\t\t\t\"Category\": \"Comment\"\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Update",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Update"
+					]
+				},
+				"description": "Use the `Update` method to create a Document object in the database.\n\nNOTE: you must run the `Create - Document` request before this one so that the `DocumentKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "748e6749-5f43-4774-8f1a-e13e36d524ed",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if(jsonData.Code === 0) {",
+							"    pm.environment.unset(\"DocumentKey\");",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Data\": {\r\n\t\t\t\"Key\": \"{{DocumentKey}}\"\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Delete",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Delete"
+					]
+				},
+				"description": "Use the `Delete` method to delete a Document from the database.\n\nNOTE: You must run the `Create` request *before* running this one so that the `DocumentKey` environment variable is set."
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65194a6-1d00-4b45-bd83-f6cfa61a776e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f58ae501-fb89-4229-9f66-589a9979a71a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Schema\": {\r\n\t\t\"Criteria\": {\r\n\t\t\t\"SearchQuery\": {\r\n\t\t\t\t\"AppliesTo\": {\r\n\t\t\t\t\t\"$IN\": [\r\n\t\t\t\t\t\t\"Document\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"Scope\": {\r\n\t\t\t\"Fields\": {\r\n\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\"Type\": 1,\r\n\t\t\t\t\"Name\": 1,\r\n\t\t\t\t\"Folder\": 1\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/SchemaRead",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"SchemaRead"
+					]
+				},
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "FieldOptions - Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c830d2-115c-44ef-8ef3-4b0832019a18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Token\": \"{{Token}}\",\r\n\t\"Document\": {\r\n\t\t\"Options\": {\r\n\t\t\t\"Category\": {\r\n\t\t\t\t\"Key\": 1,\r\n\t\t\t\t\"Value\": 1\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/DocumentGetFieldOptions",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"DocumentGetFieldOptions"
+					]
+				},
+				"description": "Use the `AppointmentGetFieldOptios` method to retrieve options for table-valued fields in Appointment objects."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "19b79665-764a-4d96-ac56-5f47c492a620",
+				"type": "text/javascript",
+				"exec": [
+					"// This script checks to see if there is a valid token in",
+					"// the environment before making any requests to the API",
+					"// by calling the TokenValid method. If there is already a",
+					"// valid token, it does nothing. If there is no token or if",
+					"// the token is not valid, it attempts to obtain a new one",
+					"// by calling the Authenticate method, and if successful, ",
+					"// saves the token to the environment.",
+					"",
+					"// Get the API URL and check to make sure it is non-empty",
+					"const baseURL = pm.environment.get(\"BaseURL\");",
+					"if(!baseURL) {",
+					"    console.error(\"The BaseURL environment variable is not set.\");",
+					"    return;",
+					"}",
+					"",
+					"// We don't want to do this when calling the Authenticate or",
+					"// TokenValid methods, since the purpose of those methods is",
+					"// to call the very methods that we're calling below",
+					"if(pm.info.requestName.startsWith(\"Authenticate\") || pm.info.requestName === \"TokenValid\") {",
+					"    return;",
+					"}",
+					"",
+					"// Check to see if there is already a Token in the environment variable",
+					"let token = pm.environment.get(\"Token\");",
+					"if(token) {",
+					"    // If there is a Token, see if it is still valid",
+					"    DoTokenValidRequest(token);",
+					"} else {",
+					"    // If there is no Token, just call Authenticate",
+					"    DoAuthenticateRequest();",
+					"}",
+					"",
+					"//----------------",
+					"//Helper Functions",
+					"//----------------",
+					"",
+					"// Calls the TokenValid method",
+					"function DoTokenValidRequest(token) {",
+					"    console.info(\"Checking to see if token is valid...\");",
+					"    // Construct the TokenValid request",
+					"    let tokenValidRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/TokenValid\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"Token\" : pm.environment.get(\"Token\") })",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the TokenValid request to the API",
+					"    pm.sendRequest(tokenValidRequest, HandleTokenValidResponse); ",
+					"}",
+					"",
+					"// Handles the TokenValid method response, and calls the ",
+					"// Authenticate method if necessary.",
+					"function HandleTokenValidResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // Something went wrong when trying to call the API",
+					"        console.error(\"An error occurred when trying to call the TokenValid method.\");",
+					"    } else {",
+					"        // Check to see if the method was successful",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            console.info(\"The current token is valid.\");",
+					"        } else {",
+					"            DoAuthenticateRequest();",
+					"        }",
+					"    }",
+					"}",
+					"",
+					"// Calls the Authenticate method",
+					"function DoAuthenticateRequest() {",
+					"    // The token is not valid, so we will try to get a new one.",
+					"    // Create the Authenticate request body.",
+					"    console.info(\"Token is missing or invalid; requesting a new one...\");",
+					"    let requestBody = {",
+					"        \"Database\": pm.environment.get(\"Database\"),",
+					"        \"UID\": pm.environment.get(\"UID\"),",
+					"        \"Password\": pm.environment.get(\"Password\")",
+					"    };",
+					"    ",
+					"    // Check to see if the VendorId and AppKey are set, and if",
+					"    // they are, add them to the request.",
+					"    if(pm.environment.get(\"VendorId\") && pm.environment.get(\"AppKey\")) {",
+					"        requestBody.VendorId = pm.environment.get(\"VendorId\");",
+					"        requestBody.AppKey = pm.environment.get(\"AppKey\");",
+					"    }",
+					"    ",
+					"    // Create the request object",
+					"    let authenticateRequest = {",
+					"      url: pm.environment.get(\"BaseURL\") + \"/Data.svc/json/Authenticate\",",
+					"      method: \"POST\",",
+					"      body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(requestBody)",
+					"      }",
+					"    };",
+					"    ",
+					"    // Send the Authenticate request to the API",
+					"    pm.sendRequest(authenticateRequest, HandleAuthenticateResponse);    ",
+					"}",
+					"",
+					"// Handles the Authenticate method response and stores the",
+					"// new token in the \"Token\" environment variable.",
+					"function HandleAuthenticateResponse(err, res) {",
+					"    if(err || !res) {",
+					"        // The request failed",
+					"        console.error(\"An error occurred when trying to call the Authenticate method.\");",
+					"    } else {",
+					"        // The request succeeded",
+					"        let jsonData = res.json();",
+					"        if(jsonData.Code === 0) {",
+					"            // Store the new token in the environment variable",
+					"            // so that we can use it in subsequent requests",
+					"            console.info(\"Retrieved new token.\");",
+					"            pm.environment.set(\"Token\", jsonData.Data.Token);",
+					"        } else {",
+					"            // A nonzero Code means that there was an error",
+					"            console.error(\"Authentication failed. Check the credentials in the environment.\");",
+					"        }",
+					"    }",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d48bf489-896b-4240-920f-e0e0385179e8",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response Code is 0\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.Code).to.eql(0);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
