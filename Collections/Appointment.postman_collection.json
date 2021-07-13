@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "4438c09d-3913-4a33-a989-602fe11f2694",
+		"name": "Appointment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read - Appointment (Schema)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Token\":\"{{Token}}\",\r\n  \"Schema\":{\r\n    \"Scope\":{\r\n      \"Fields\":{\r\n        \"Key\":1,\r\n        \"Name\":1,\r\n        \"Type\":1,\r\n        \"Attributes\":1\r\n      }\r\n    },\r\n    \"Criteria\":{\r\n      \"SearchQuery\":{\r\n        \"$EQ\":{\r\n          \"AppliesTo\":\"Appointment\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read - Appointment (Detailed)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Token\":\"{{Token}}\",\r\n   \"Appointment\":{\r\n           \"Options\":{\r\n      \"Complex\":true\r\n    },\r\n      \"Criteria\":{\r\n         \"SearchQuery\":{\r\n            \"StartDate\":{\r\n                \"$EQ\":\"$TODAY\"\r\n            }\r\n         }\r\n      },\r\n      \"Scope\":{\r\n         \"Fields\":{\r\n            \"Subject\":1,\r\n            \"AbEntries\":{\r\n                \"DisplayValue\":1,\r\n                \"Key\":1\r\n            },\r\n            \"StartDate\":{\r\n                \"Value\":1,\r\n                \"DisplayValue\":1\r\n            },\r\n            \"EndDate\":{\r\n                \"Value\":1,\r\n                \"DisplayValue\":1\r\n            },\r\n            \"Location\":{\r\n                \"DisplayValue\":1\r\n            },\r\n            \"Organizer\":{\r\n                \"UID\":1\r\n            },\r\n\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"url": {
+					"raw": "{{BaseURL}}/Data.svc/json/Read",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Data.svc",
+						"json",
+						"Read"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
