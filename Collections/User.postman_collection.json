@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "9969d2dd-1c43-4dea-b4a4-f82d98de885b",
-		"name": "User",
+		"name": "User **BETA**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Read Users (Simple)",
+			"name": "Read Users (Simple) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -37,12 +37,12 @@
 						"UserRead"
 					]
 				},
-				"description": "Use the `UserRead` method to search for users in the database."
+				"description": "Use the `UserRead` method to search for users in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read Users (Detailed)",
+			"name": "Read Users (Detailed) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -73,7 +73,7 @@
 						"UserRead"
 					]
 				},
-				"description": "Use the `UserRead` method to search for users in the database."
+				"description": "Use the `UserRead` method to search for users in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		}

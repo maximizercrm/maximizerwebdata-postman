@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "d10772ac-2987-42a3-b85e-8991cbd44071",
-		"name": "Opportunity",
+		"name": "Opportunity **BETA**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create - Opportunity",
+			"name": "Create - Opportunity **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -50,12 +50,12 @@
 						"OpportunityCreate"
 					]
 				},
-				"description": "Use the `OpportunityCreate` method to create a new opportunity in the database.\n\nNOTE: You must run the `AbEntryCreate (Company)` request before running this one so that the `AbEntryKey` environment variable is set."
+				"description": "Use the `OpportunityCreate` method to create a new opportunity in the database.\n\nNOTE: You must run the `AbEntryCreate (Company)` request before running this one so that the `AbEntryKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Create - Opportunity (All)",
+			"name": "Create - Opportunity (All) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -99,12 +99,12 @@
 						"OpportunityCreate"
 					]
 				},
-				"description": "Use the `OpportunityCreate` method to create a new opportunity in the database.\n\nNOTE: You must run the `AbEntryCreate (Company)` request before running this one so that the `AbEntryKey` environment variable is set."
+				"description": "Use the `OpportunityCreate` method to create a new opportunity in the database.\n\nNOTE: You must run the `AbEntryCreate (Company)` request before running this one so that the `AbEntryKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Opportunity (Simple)",
+			"name": "Read - Opportunity (Simple) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -135,12 +135,12 @@
 						"OpportunityRead"
 					]
 				},
-				"description": "Use the `OpportunityRead` method to search for opportunities in the database."
+				"description": "Use the `OpportunityRead` method to search for opportunities in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Opportunity (Detailed)",
+			"name": "Read - Opportunity (Detailed) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -171,12 +171,12 @@
 						"OpportunityRead"
 					]
 				},
-				"description": "Use the `OpportunityRead` method to search for opportunities in the database."
+				"description": "Use the `OpportunityRead` method to search for opportunities in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Opportunity (ALL)",
+			"name": "Read - Opportunity (ALL) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -207,12 +207,12 @@
 						"OpportunityRead"
 					]
 				},
-				"description": "Use the `OpportunityRead` method to search for opportunities in the database."
+				"description": "Use the `OpportunityRead` method to search for opportunities in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Update - Opportunity",
+			"name": "Update - Opportunity **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -253,12 +253,12 @@
 						"OpportunityUpdate"
 					]
 				},
-				"description": "Use the `OpportunityUpdate` method to update an existing opportunity in the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
+				"description": "Use the `OpportunityUpdate` method to update an existing opportunity in the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Delete - Opportunity",
+			"name": "Delete - Opportunity **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -302,12 +302,12 @@
 						"OpportunityDelete"
 					]
 				},
-				"description": "Use the `OpportunityDelete` method to delete an opportunity from the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
+				"description": "Use the `OpportunityDelete` method to delete an opportunity from the database.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Metadata - Opportunity",
+			"name": "Metadata - Opportunity **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -348,12 +348,12 @@
 						"SchemaRead"
 					]
 				},
-				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Options - Opportunity (Generic)",
+			"name": "Options - Opportunity (Generic) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -394,12 +394,12 @@
 						"OpportunityGetFieldOptions"
 					]
 				},
-				"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects."
+				"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Options - Opportunity (Specific Entry)",
+			"name": "Options - Opportunity (Specific Entry) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -440,7 +440,7 @@
 						"OpportunityGetFieldOptions"
 					]
 				},
-				"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects. If you include the Key of an existing Opportunity, the options specific to that entry are retrieved.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set."
+				"description": "Use the `OpportunityGetFieldOptions` method to retrieve the options for table-valued fields of Opportunity objects. If you include the Key of an existing Opportunity, the options specific to that entry are retrieved.\n\nNOTE: You must run the `OpportunityCreate` request *before* running this one so that the `OpportunityKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		}

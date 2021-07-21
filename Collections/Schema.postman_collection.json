@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "aa3e0c03-5d80-4e8f-bf2a-6c0cb6c2c38b",
-		"name": "Schema",
+		"name": "Schema **BETA**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create - Schema",
+			"name": "Create - Schema **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -50,12 +50,12 @@
 						"Create"
 					]
 				},
-				"description": "Use the `Create` method to create a new user-defined field in the database."
+				"description": "Use the `Create` method to create a new user-defined field in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Create - Schema (All)",
+			"name": "Create - Schema (All) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -99,12 +99,12 @@
 						"Create"
 					]
 				},
-				"description": "Use the `Create` method to create a new user-defined field in the database.\n\nNOTE: You must run both the `Create - Schema` and `Create - Folder` request *before* running this one so that the `SchemaKey` and `FolderKey` environment variables are set."
+				"description": "Use the `Create` method to create a new user-defined field in the database.\n\nNOTE: You must run both the `Create - Schema` and `Create - Folder` request *before* running this one so that the `SchemaKey` and `FolderKey` environment variables are set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Schema (All)",
+			"name": "Read - Schema (All) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -135,12 +135,12 @@
 						"Read"
 					]
 				},
-				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Schema (Detailed)",
+			"name": "Read - Schema (Detailed) **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -171,12 +171,12 @@
 						"Read"
 					]
 				},
-				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+				"description": "Use the `Read` method to search for fields of objects in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Update - Schema",
+			"name": "Update - Schema **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -217,12 +217,12 @@
 						"Update"
 					]
 				},
-				"description": "Use the `Update` method to update an existing user-defined field in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+				"description": "Use the `Update` method to update an existing user-defined field in the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Delete - Schema",
+			"name": "Delete - Schema **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -266,12 +266,12 @@
 						"Delete"
 					]
 				},
-				"description": "Use the `Delete` method to delete a user-defined field from the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set."
+				"description": "Use the `Delete` method to delete a user-defined field from the database.\n\nNOTE: You must run the `Create - Schema` request *before* running this one so that the `SchemaKey` environment variable is set. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Metadata – Schema",
+			"name": "Metadata - Schema **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -312,12 +312,12 @@
 						"SchemaRead"
 					]
 				},
-				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database."
+				"description": "Use the `SchemaRead` method to query the structure or metadata of entities in the database. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Options - Schema",
+			"name": "Options - Schema **BETA**",
 			"event": [
 				{
 					"listen": "test",
@@ -358,7 +358,7 @@
 						"SchemaGetFieldOptions"
 					]
 				},
-				"description": "Use the `SchemaGetFieldOptions` method to retrieve the options for table-valued fields of Schema objects."
+				"description": "Use the `SchemaGetFieldOptions` method to retrieve the options for table-valued fields of Schema objects. NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		}

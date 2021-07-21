@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "4438c09d-3913-4a33-a989-602fe11f2694",
-		"name": "Appointment",
+		"name": "Appointment **BETA**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Read - Appointment (Schema)",
+			"name": "Read - Appointment (Schema) **BETA**",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -24,12 +24,13 @@
 						"json",
 						"Read"
 					]
-				}
+				},
+				"description": "NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		},
 		{
-			"name": "Read - Appointment (Detailed)",
+			"name": "Read - Appointment (Detailed) **BETA**",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {}
 			},
@@ -50,7 +51,8 @@
 						"json",
 						"Read"
 					]
-				}
+				},
+				"description": "NOTE: this functionality is currently of BETA/CTP quality (not ready for production usage)."
 			},
 			"response": []
 		}
