@@ -1,3 +1,9 @@
+# The actual version of the Postman Collection is here
+https://github.com/MaximizerSoftwareInc/octopus-api-postman
+
+
+
+-------
 # Maximizer.Web.Data Postman Collection
 
 [Postman](https://www.getpostman.com/postman) is an API development tool that allows you to quickly and easily create and execute API requests and examine the responses for web service APIs like Maximizer.Web.Data.
