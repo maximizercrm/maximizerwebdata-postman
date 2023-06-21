@@ -1,5 +1,5 @@
 # The actual version of the Postman Collection is here
-https://github.com/MaximizerSoftwareInc/octopus-api-postman
+[https://github.com/MaximizerSoftwareInc/octopus-api-postman](https://github.com/maximizercrm/octopus-api)
 
 
 
